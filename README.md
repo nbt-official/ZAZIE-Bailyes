@@ -5,7 +5,7 @@
 This library was originally a project for **CS-2362 at Ashoka University** and is in no way affiliated with or endorsed by WhatsApp. Use at your own discretion. Do not spam people with this. We discourage any stalkerware, bulk or automated messaging usage. 
 
 #### Liability and License Notice
-Baileys and its maintainers cannot be held liable for misuse of this application, as stated in the [MIT license](https://github.com/LT-SYAII/Bail/blob/master/LICENSE).
+Baileys and its maintainers cannot be held liable for misuse of this application, as stated in the [MIT license](https://github.com/WhiskeySockets/Baileys/blob/master/LICENSE).
 The maintainers of Baileys do not in any way condone the use of this application in practices that violate the Terms of Service of WhatsApp. The maintainers of this application call upon the personal responsibility of its users to use this application in a fair way, as it is intended to be used.
 ##
 
@@ -33,17 +33,17 @@ To run the example script, download or clone the repo and then type the followin
 
 Use the stable version:
 ```
-yarn add akiraa-baileys
+yarn add @whiskeysockets/baileys
 ```
 
 Use the edge version (no guarantee of stability, but latest fixes + features)
 ```
-yarn add github:LT-SYAII/Bail
+yarn add github:WhiskeySockets/Baileys
 ```
 
 Then import your code using:
 ``` ts 
-import makeWASocket from 'akiraa-baileys'
+import makeWASocket from '@whiskeysockets/baileys'
 ```
 
 ## Unit Tests
@@ -55,7 +55,7 @@ TODO
 WhatsApp provides a multi-device API that allows Baileys to be authenticated as a second WhatsApp client by scanning a QR code with WhatsApp on your phone.
 
 ``` ts
-import makeWASocket, { DisconnectReason } from 'akiraa-baileys'
+import makeWASocket, { DisconnectReason } from '@whiskeysockets/baileys'
 import { Boom } from '@hapi/boom'
 
 async function connectToWhatsApp () {
@@ -88,16 +88,6 @@ connectToWhatsApp()
 ``` 
 
 If the connection is successful, you will see a QR code printed on your terminal screen, scan it with WhatsApp on your phone and you'll be logged in!
-
-**Note:** install `qrcode-terminal` using `yarn add qrcode-terminal` to auto-print the QR to the terminal.
-
-**Note:** the code to support the legacy version of WA Web (pre multi-device) has been removed in v5. Only the standard multi-device connection is now supported. This is done as WA seems to have completely dropped support for the legacy version.
-
-## Connecting native mobile api
-
-Baileys also supports the native mobile API, which allows users to authenticate as a standalone WhatsApp client using their phone number.
-
-Run the [example](Example/example.ts) file with ``--mobile`` cli flag to use the native mobile API.
 
 ## Configuring the Connection
 
@@ -193,7 +183,7 @@ You obviously don't want to keep scanning the QR code every time you want to con
 
 So, you can load the credentials to log back in:
 ``` ts
-import makeWASocket, { BufferJSON, useMultiFileAuthState } from 'akiraa-baileys'
+import makeWASocket, { BufferJSON, useMultiFileAuthState } from '@whiskeysockets/baileys'
 import * as fs from 'fs'
 
 // utility function to help save the auth state in a single folder
@@ -308,7 +298,7 @@ Baileys does not come with a defacto storage for chats, contacts, or messages. H
 It can be used as follows:
 
 ``` ts
-import makeWASocket, { makeInMemoryStore } from 'akiraa-baileys'
+import makeWASocket, { makeInMemoryStore } from '@whiskeysockets/baileys'
 // the store maintains the data of the WA connection in memory
 // can be written out to a file & read from it
 const store = makeInMemoryStore({ })
@@ -324,13 +314,13 @@ const sock = makeWASocket({ })
 // the store can listen from a new socket once the current socket outlives its lifetime
 store.bind(sock.ev)
 
-sock.ev.on('chats.set', () => {
+sock.ev.on('chats.upsert', () => {
     // can use "store.chats" however you want, even after the socket dies out
     // "chats" => a KeyedDB instance
     console.log('got chats', store.chats.all())
 })
 
-sock.ev.on('contacts.set', () => {
+sock.ev.on('contacts.upsert', () => {
     console.log('got contacts', Object.values(store.contacts))
 })
 
@@ -347,7 +337,7 @@ The store also provides some simple functions such as `loadMessages` that utiliz
 ### Non-Media Messages
 
 ``` ts
-import { MessageType, MessageOptions, Mimetype } from 'akiraa-baileys'
+import { MessageType, MessageOptions, Mimetype } from '@whiskeysockets/baileys'
 
 const id = 'abcd@s.whatsapp.net' // the WhatsApp ID 
 // send a simple text!
@@ -406,7 +396,7 @@ Sending media (video, stickers, images) is easier & more efficient than ever.
 - When specifying a media url, Baileys never loads the entire buffer into memory; it even encrypts the media as a readable stream.
 
 ``` ts
-import { MessageType, MessageOptions, Mimetype } from 'akiraa-baileys'
+import { MessageType, MessageOptions, Mimetype } from '@whiskeysockets/baileys'
 // Sending gifs
 await sock.sendMessage(
     id, 
@@ -422,7 +412,8 @@ await sock.sendMessage(
     { 
         video: "./Media/ma_gif.mp4", 
         caption: "hello!",
-        gifPlayback: true
+        gifPlayback: true,
+	ptv: false // if set to true, will send as a `video note`
     }
 )
 
@@ -455,7 +446,7 @@ await sock.sendMessage(
                                     Do not enter this field if you want to automatically generate a thumb
                                 */
         mimetype: Mimetype.pdf, /* (for media messages) specify the type of media (optional for all media types except documents),
-                                    import {Mimetype} from 'akiraa-baileys'
+                                    import {Mimetype} from '@whiskeysockets/baileys'
                                 */
         fileName: 'somefile.pdf', // (for media messages) file name for the media
         /* will send audio messages as voice notes, if set to true */
@@ -514,7 +505,7 @@ The presence expires after about 10 seconds.
 If you want to save the media you received
 ``` ts
 import { writeFile } from 'fs/promises'
-import { downloadMediaMessage } from 'akiraa-baileys'
+import { downloadMediaMessage } from '@whiskeysockets/baileys'
 
 sock.ev.on('messages.upsert', async ({ messages }) => {
     const m = messages[0]
@@ -713,64 +704,6 @@ await sock.sendMessage(
     ```
 Of course, replace ``` xyz ``` with an actual ID. 
 
-## Newsletter
-- To get info newsletter
-    ``` ts
-    const metadata = await sock.newsletterMetadata("invite", "xxxxx")
-    // or
-    const metadata = await sock.newsletterMetadata("jid", "abcd@newsletter")
-    console.log(metadata)
-    ```
-- To update the description of a newsletter
-    ``` ts
-    await sock.newsletterUpdateDescription("abcd@newsletter", "New Description")
-    ```
-- To update the name of a newsletter
-    ``` ts
-    await sock.newsletterUpdateName("abcd@newsletter", "New Name")
-    ```  
-- To update the profile picture of a newsletter.
-    ``` ts
-    await sock.newsletterUpdatePicture("abcd@newsletter", buffer)
-    ```
-- To remove the profile picture of a newsletter
-    ``` ts
-    await sock.newsletterRemovePicture("abcd@newsletter")
-    ```
-- To mute notifications for a newsletter.
-    ``` ts
-    await sock.newsletterUnmute("abcd@newsletter")
-    ```
-- To mute notifications for a newsletter.
-    ``` ts
-    await sock.newsletterMute("abcd@newsletter")
-    ```
-- To create a newsletter
-    ``` ts
-    const metadata = await sock.newsletterCreate("Newsletter Name", "Newsletter Description")
-    console.log(metadata)
-    ```
-- To delete a newsletter.
-    ``` ts
-    await sock.newsletterDelete("abcd@newsletter")
-    ```
-- To follow a newsletter
-    ``` ts
-    await sock.newsletterFollow("abcd@newsletter")
-    ```
-- To unfollow a newsletter
-    ``` ts
-    await sock.newsletterUnfollow("abcd@newsletter")
-    ```
-- To send reaction
-    ``` ts
-    // jid, id message & emoticon
-    // way to get the ID is to copy the message url from channel
-    // Example: [ https://whatsapp.com/channel/xxxxx/175 ]
-    // The last number of the URL is the ID
-    const id = "175"
-    await sock.newsletterReactMessage("abcd@newsletter", id, "🥳")
-    ```
 ## Groups
 - To create a group
     ``` ts
@@ -892,7 +825,7 @@ Of course, replace ``` xyz ``` with an actual ID.
     ```
 - To update the Groups Add privacy
     ``` ts
-    const value = 'all' // 'contacts' | 'contact_blacklist' | 'none'
+    const value = 'all' // 'contacts' | 'contact_blacklist'
     await sock.updateGroupsAddPrivacy(value)
     ```
 - To update the Default Disappearing Mode
