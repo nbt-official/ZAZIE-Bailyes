@@ -1,8 +1,17 @@
 /// <reference types="node" />
+<<<<<<< HEAD
 import { Boom } from '@hapi/boom';
 import { proto } from '../../WAProto';
 import { ChatModification, MessageUpsertType, SocketConfig, WABusinessProfile, WAMediaUpload, WAPatchCreate, WAPresence, WAPrivacyOnlineValue, WAPrivacyValue, WAReadReceiptsValue } from '../Types';
 import { BinaryNode } from '../WABinary';
+=======
+/// <reference types="node" />
+import { Boom } from '@hapi/boom';
+import { proto } from '../../WAProto';
+import { ChatModification, MessageUpsertType, SocketConfig, WABusinessProfile, WAMediaUpload, WAPatchCreate, WAPresence, WAPrivacyCallValue, WAPrivacyOnlineValue, WAPrivacyValue, WAReadReceiptsValue } from '../Types';
+import { BinaryNode } from '../WABinary';
+import { USyncQuery } from '../WAUSync';
+>>>>>>> 6603b4e (minor update)
 export declare const makeChatsSocket: (config: SocketConfig) => {
     processingMutex: {
         mutex<T>(code: () => T | Promise<T>): Promise<T>;
@@ -16,6 +25,7 @@ export declare const makeChatsSocket: (config: SocketConfig) => {
     presenceSubscribe: (toJid: string, tcToken?: Buffer) => Promise<void>;
     profilePictureUrl: (jid: string, type?: 'preview' | 'image', timeoutMs?: number) => Promise<string | undefined>;
     onWhatsApp: (...jids: string[]) => Promise<{
+<<<<<<< HEAD
         exists: boolean;
         jid: string;
     }[]>;
@@ -24,11 +34,23 @@ export declare const makeChatsSocket: (config: SocketConfig) => {
         status: string | undefined;
         setAt: Date;
     } | undefined>;
+=======
+        jid: string;
+        exists: unknown;
+    }[] | undefined>;
+    fetchBlocklist: () => Promise<string[]>;
+    fetchStatus: (...jids: string[]) => Promise<import("../WAUSync").USyncQueryResultList[] | undefined>;
+    fetchDisappearingDuration: (...jids: string[]) => Promise<import("../WAUSync").USyncQueryResultList[] | undefined>;
+>>>>>>> 6603b4e (minor update)
     updateProfilePicture: (jid: string, content: WAMediaUpload) => Promise<void>;
     removeProfilePicture: (jid: string) => Promise<void>;
     updateProfileStatus: (status: string) => Promise<void>;
     updateProfileName: (name: string) => Promise<void>;
     updateBlockStatus: (jid: string, action: 'block' | 'unblock') => Promise<void>;
+<<<<<<< HEAD
+=======
+    updateCallPrivacy: (value: WAPrivacyCallValue) => Promise<void>;
+>>>>>>> 6603b4e (minor update)
     updateLastSeenPrivacy: (value: WAPrivacyValue) => Promise<void>;
     updateOnlinePrivacy: (value: WAPrivacyOnlineValue) => Promise<void>;
     updateProfilePicturePrivacy: (value: WAPrivacyValue) => Promise<void>;
@@ -43,6 +65,10 @@ export declare const makeChatsSocket: (config: SocketConfig) => {
     addChatLabel: (jid: string, labelId: string) => Promise<void>;
     removeChatLabel: (jid: string, labelId: string) => Promise<void>;
     addMessageLabel: (jid: string, messageId: string, labelId: string) => Promise<void>;
+<<<<<<< HEAD
+=======
+    clearMessage: (jid: string, key: string, timeStamp: string) => Promise<void>;
+>>>>>>> 6603b4e (minor update)
     removeMessageLabel: (jid: string, messageId: string, labelId: string) => Promise<void>;
     star: (jid: string, messages: {
         id: string;

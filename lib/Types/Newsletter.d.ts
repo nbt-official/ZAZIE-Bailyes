@@ -77,6 +77,7 @@ export declare enum XWAPaths {
     NEWSLETTER = "xwa2_newsletter",
     METADATA_UPDATE = "xwa2_notify_newsletter_on_metadata_update"
 }
+<<<<<<< HEAD
 export declare enum QueryIds {
     JOB_MUTATION = "7150902998257522",
     METADATA = "6620195908089573",
@@ -90,3 +91,5 @@ export declare enum QueryIds {
     DELETE = "8316537688363079",
     DEMOTE = "6551828931592903"
 }
+=======
+>>>>>>> 6603b4e (minor update)

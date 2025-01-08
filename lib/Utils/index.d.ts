@@ -12,6 +12,10 @@ export * from './lt-hash';
 export * from './auth-utils';
 export * from './baileys-event-stream';
 export * from './use-multi-file-auth-state';
+<<<<<<< HEAD
+=======
+export * from './use-single-file-auth-state';
+>>>>>>> 6603b4e (minor update)
 export * from './link-preview';
 export * from './event-buffer';
 export * from './process-message';

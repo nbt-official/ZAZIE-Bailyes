@@ -1,10 +1,17 @@
 export * from './Auth';
 export * from './GroupMetadata';
+<<<<<<< HEAD
+=======
+export * from './Newsletter';
+>>>>>>> 6603b4e (minor update)
 export * from './Chat';
 export * from './Contact';
 export * from './State';
 export * from './Message';
+<<<<<<< HEAD
 export * from './Newsletter';
+=======
+>>>>>>> 6603b4e (minor update)
 export * from './Socket';
 export * from './Events';
 export * from './Product';
@@ -15,6 +22,16 @@ import { SocketConfig } from './Socket';
 export type UserFacingSocketConfig = Partial<SocketConfig> & {
     auth: AuthenticationState;
 };
+<<<<<<< HEAD
+=======
+export type BrowsersMap = {
+    ubuntu(browser: string): [string, string, string];
+    macOS(browser: string): [string, string, string];
+    baileys(browser: string): [string, string, string];
+    windows(browser: string): [string, string, string];
+    appropriate(browser: string): [string, string, string];
+};
+>>>>>>> 6603b4e (minor update)
 export declare enum DisconnectReason {
     connectionClosed = 428,
     connectionLost = 408,

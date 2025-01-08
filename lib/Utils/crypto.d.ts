@@ -1,4 +1,8 @@
 /// <reference types="node" />
+<<<<<<< HEAD
+=======
+/// <reference types="node" />
+>>>>>>> 6603b4e (minor update)
 import { KeyPair } from '../Types';
 /** prefix version byte to the pub keys, required for some curve crypto functions */
 export declare const generateSignalPubKey: (pubKey: Uint8Array | Buffer) => Uint8Array | Buffer;
@@ -38,4 +42,8 @@ export declare function hkdf(buffer: Uint8Array | Buffer, expandedLength: number
     salt?: Buffer;
     info?: string;
 }): Buffer;
+<<<<<<< HEAD
 export declare function derivePairingCodeKey(pairingCode: string, salt: Buffer): Buffer;
+=======
+export declare function derivePairingCodeKey(pairingCode: string, salt: Buffer): Promise<Buffer>;
+>>>>>>> 6603b4e (minor update)

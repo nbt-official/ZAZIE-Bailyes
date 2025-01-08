@@ -22,10 +22,18 @@ export declare const isJidUser: (jid: string | undefined) => boolean | undefined
 export declare const isLidUser: (jid: string | undefined) => boolean | undefined;
 /** is the jid a broadcast */
 export declare const isJidBroadcast: (jid: string | undefined) => boolean | undefined;
+<<<<<<< HEAD
+=======
+/** is the jid a newsletter */
+export declare const isJidNewsletter: (jid: string | undefined) => boolean | undefined;
+>>>>>>> 6603b4e (minor update)
 /** is the jid a group */
 export declare const isJidGroup: (jid: string | undefined) => boolean | undefined;
 /** is the jid the status broadcast */
 export declare const isJidStatusBroadcast: (jid: string) => boolean;
+<<<<<<< HEAD
 /** is the jid the newsletter */
 export declare const isJidNewsLetter: (jid: string | undefined) => boolean | undefined;
+=======
+>>>>>>> 6603b4e (minor update)
 export declare const jidNormalizedUser: (jid: string | undefined) => string;

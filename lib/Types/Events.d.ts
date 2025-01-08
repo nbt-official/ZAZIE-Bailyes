@@ -4,11 +4,19 @@ import { AuthenticationCreds } from './Auth';
 import { WACallEvent } from './Call';
 import { Chat, ChatUpdate, PresenceData } from './Chat';
 import { Contact } from './Contact';
+<<<<<<< HEAD
 import { GroupMetadata, ParticipantAction } from './GroupMetadata';
+=======
+import { GroupMetadata, ParticipantAction, RequestJoinAction, RequestJoinMethod } from './GroupMetadata';
+>>>>>>> 6603b4e (minor update)
 import { Label } from './Label';
 import { LabelAssociation } from './LabelAssociation';
 import { MessageUpsertType, MessageUserReceiptUpdate, WAMessage, WAMessageKey, WAMessageUpdate } from './Message';
 import { ConnectionState } from './State';
+<<<<<<< HEAD
+=======
+import { NewsletterSettingsUpdate, SubscriberAction, NewsletterViewRole } from './Newsletter';
+>>>>>>> 6603b4e (minor update)
 export type BaileysEventMap = {
     /** connection state has been updated -- WS closed, opened, connecting etc. */
     'connection.update': Partial<ConnectionState>;
@@ -78,6 +86,42 @@ export type BaileysEventMap = {
         participants: string[];
         action: ParticipantAction;
     };
+<<<<<<< HEAD
+=======
+    'group.join-request': {
+        id: string;
+        author: string;
+        participant: string;
+        action: RequestJoinAction;
+        method: RequestJoinMethod;
+    };
+    'newsletter.reaction': {
+        id: string;
+        server_id: string;
+        reaction: {
+            code?: string;
+            count?: number;
+            removed?: boolean;
+        };
+    };
+    'newsletter.view': {
+        id: string;
+        server_id: string;
+        count: number;
+    };
+    /**don't handles subscribe/unsubscribe actions */
+    'newsletter-participants.update': {
+        id: string;
+        author: string;
+        user: string;
+        new_role: NewsletterViewRole;
+        action: SubscriberAction;
+    };
+    'newsletter-settings.update': {
+        id: string;
+        update: NewsletterSettingsUpdate;
+    };
+>>>>>>> 6603b4e (minor update)
     'blocklist.set': {
         blocklist: string[];
     };

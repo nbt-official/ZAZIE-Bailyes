@@ -1,4 +1,8 @@
 /// <reference types="node" />
+<<<<<<< HEAD
+=======
+/// <reference types="node" />
+>>>>>>> 6603b4e (minor update)
 import { proto } from '../../WAProto';
 import { BinaryNode } from './types';
 export declare const getBinaryNodeChildren: (node: BinaryNode | undefined, childTag: string) => BinaryNode[];

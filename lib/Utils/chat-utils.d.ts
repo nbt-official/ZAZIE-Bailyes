@@ -1,4 +1,8 @@
 /// <reference types="node" />
+<<<<<<< HEAD
+=======
+/// <reference types="node" />
+>>>>>>> 6603b4e (minor update)
 import { AxiosRequestConfig } from 'axios';
 import type { Logger } from 'pino';
 import { proto } from '../../WAProto';

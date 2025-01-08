@@ -1,4 +1,8 @@
 /// <reference types="node" />
+<<<<<<< HEAD
+=======
+/// <reference types="node" />
+>>>>>>> 6603b4e (minor update)
 import type { proto } from '../../WAProto';
 import { RegistrationOptions } from '../Socket/registration';
 import type { Contact } from './Contact';

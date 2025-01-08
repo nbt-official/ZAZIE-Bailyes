@@ -6,6 +6,10 @@ import type { MessageLabelAssociationActionBody } from './LabelAssociation';
 import type { MinimalMessage } from './Message';
 /** privacy settings in WhatsApp Web */
 export type WAPrivacyValue = 'all' | 'contacts' | 'contact_blacklist' | 'none';
+<<<<<<< HEAD
+=======
+export type WAPrivacyCallValue = 'all' | 'known';
+>>>>>>> 6603b4e (minor update)
 export type WAPrivacyOnlineValue = 'all' | 'match_last_seen';
 export type WAReadReceiptsValue = 'all' | 'none';
 /** set of statuses visible to other people; see updatePresence() in WhatsAppWeb.Send */

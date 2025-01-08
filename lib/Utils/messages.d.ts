@@ -1,5 +1,9 @@
 /// <reference types="node" />
 /// <reference types="node" />
+<<<<<<< HEAD
+=======
+/// <reference types="node" />
+>>>>>>> 6603b4e (minor update)
 import { Logger } from 'pino';
 import { type Transform } from 'stream';
 import { proto } from '../../WAProto';
