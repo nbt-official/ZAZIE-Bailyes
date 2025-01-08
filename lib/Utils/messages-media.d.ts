@@ -1,10 +1,7 @@
 /// <reference types="node" />
 /// <reference types="node" />
 /// <reference types="node" />
-<<<<<<< HEAD
-=======
 /// <reference types="node" />
->>>>>>> 6603b4e (minor update)
 import { Boom } from '@hapi/boom';
 import { AxiosRequestConfig } from 'axios';
 import type { Logger } from 'pino';
@@ -105,11 +102,7 @@ export declare const getWAUploadToServer: ({ customUploadHosts, fetchAgent, logg
  */
 export declare const encryptMediaRetryRequest: (key: proto.IMessageKey, mediaKey: Buffer | Uint8Array, meId: string) => BinaryNode;
 export declare const decodeMediaRetryNode: (node: BinaryNode) => {
-<<<<<<< HEAD
-    key: proto.IMessageKey;
-=======
     key: import("../Types").WAMessageKey;
->>>>>>> 6603b4e (minor update)
     media?: {
         ciphertext: Uint8Array;
         iv: Uint8Array;

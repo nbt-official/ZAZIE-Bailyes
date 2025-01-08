@@ -115,10 +115,7 @@ message BotMetadata {
     optional BotPluginMetadata pluginMetadata = 3;
     optional BotSuggestedPromptMetadata suggestedPromptMetadata = 4;
     optional string invokerJid = 5;
-<<<<<<< HEAD
-=======
     optional BotSearchMetadata searchMetadata = 6;
->>>>>>> 6603b4e (minor update)
 }
 
 message BotPluginMetadata {
@@ -129,12 +126,8 @@ message BotPluginMetadata {
     optional string searchProviderUrl = 5;
     optional uint32 referenceIndex = 6;
     optional uint32 expectedLinksCount = 7;
-<<<<<<< HEAD
-    optional uint32 pluginVersion = 8;
-=======
     optional string searchQuery = 9;
     optional MessageKey parentPluginMessageKey = 10;
->>>>>>> 6603b4e (minor update)
     enum PluginType {
         REELS = 1;
         SEARCH = 2;
@@ -145,13 +138,10 @@ message BotPluginMetadata {
     }
 }
 
-<<<<<<< HEAD
-=======
 message BotSearchMetadata {
     optional string sessionId = 1;
 }
 
->>>>>>> 6603b4e (minor update)
 message BotSuggestedPromptMetadata {
     repeated string suggestedPrompts = 1;
     optional uint32 selectedPromptIndex = 2;
@@ -222,14 +212,11 @@ message CertChain {
     
 }
 
-<<<<<<< HEAD
-=======
 message ChatLockSettings {
     optional bool hideLockedChats = 1;
     optional UserPassword secretCode = 2;
 }
 
->>>>>>> 6603b4e (minor update)
 message ChatRowOpaqueData {
     optional DraftMessage draftMessage = 1;
     message DraftMessage {
@@ -378,10 +365,7 @@ message ClientPayload {
         optional string deviceBoard = 13;
         optional string deviceExpId = 14;
         optional DeviceType deviceType = 15;
-<<<<<<< HEAD
-=======
         optional string deviceModelType = 16;
->>>>>>> 6603b4e (minor update)
         message AppVersion {
             optional uint32 primary = 1;
             optional uint32 secondary = 2;
@@ -512,10 +496,7 @@ message ContextInfo {
     optional string smbClientCampaignId = 45;
     optional string smbServerCampaignId = 46;
     optional DataSharingContext dataSharingContext = 47;
-<<<<<<< HEAD
-=======
     optional bool alwaysShowAdAttribution = 48;
->>>>>>> 6603b4e (minor update)
     message AdReplyInfo {
         optional string advertiserName = 1;
         optional MediaType mediaType = 2;
@@ -624,10 +605,7 @@ message Conversation {
     optional string username = 43;
     optional string lidOriginType = 44;
     optional uint32 commentsCount = 45;
-<<<<<<< HEAD
-=======
     optional bool locked = 46;
->>>>>>> 6603b4e (minor update)
     enum EndOfHistoryTransferType {
         COMPLETE_BUT_MORE_MESSAGES_REMAIN_ON_PRIMARY = 0;
         COMPLETE_AND_NO_MORE_MESSAGE_REMAIN_ON_PRIMARY = 1;
@@ -635,8 +613,6 @@ message Conversation {
     }
 }
 
-<<<<<<< HEAD
-=======
 message DeviceCapabilities {
     optional ChatLockSupportLevel chatLockSupportLevel = 1;
     enum ChatLockSupportLevel {
@@ -646,7 +622,6 @@ message DeviceCapabilities {
     }
 }
 
->>>>>>> 6603b4e (minor update)
 message DeviceConsistencyCodeMessage {
     optional uint32 generation = 1;
     optional bytes signature = 2;
@@ -686,11 +661,8 @@ message DeviceProps {
         optional bool supportCallLogHistory = 6;
         optional bool supportBotUserAgentChatHistory = 7;
         optional bool supportCagReactionsAndPolls = 8;
-<<<<<<< HEAD
-=======
         optional bool supportBizHostedMsg = 9;
         optional bool supportRecentSyncChunkMessageCountTuning = 10;
->>>>>>> 6603b4e (minor update)
     }
     
     enum PlatformType {
@@ -745,13 +717,10 @@ message EphemeralSetting {
     optional sfixed64 timestamp = 2;
 }
 
-<<<<<<< HEAD
-=======
 message EventAdditionalMetadata {
     optional bool isStale = 1;
 }
 
->>>>>>> 6603b4e (minor update)
 message EventResponse {
     optional MessageKey eventResponseMessageKey = 1;
     optional int64 timestampMs = 2;
@@ -792,10 +761,7 @@ message GlobalSettings {
     optional int32 photoQualityMode = 16;
     optional NotificationSettings individualNotificationSettings = 17;
     optional NotificationSettings groupNotificationSettings = 18;
-<<<<<<< HEAD
-=======
     optional ChatLockSettings chatLockSettings = 19;
->>>>>>> 6603b4e (minor update)
 }
 
 message GroupMention {
@@ -984,11 +950,7 @@ message MediaEntry {
     }
     
     message ProgressiveJpegDetails {
-<<<<<<< HEAD
-        repeated int64 scanLengths = 1;
-=======
         repeated uint32 scanLengths = 1;
->>>>>>> 6603b4e (minor update)
         optional bytes sidecar = 2;
     }
     
@@ -1081,19 +1043,11 @@ message Message {
     optional BCallMessage bcallMessage = 72;
     optional FutureProofMessage lottieStickerMessage = 74;
     optional EventMessage eventMessage = 75;
-<<<<<<< HEAD
-    optional CommentMessage commentMessage = 77;
-    optional NewsletterAdminInviteMessage newsletterAdminInviteMessage = 78;
-    optional ExtendedTextMessageWithParentKey extendedTextMessageWithParentKey = 79;
-    optional PlaceholderMessage placeholderMessage = 80;
-    optional EncEventUpdateMessage encEventUpdateMessage = 81;
-=======
     optional EncEventResponseMessage encEventResponseMessage = 76;
     optional CommentMessage commentMessage = 77;
     optional NewsletterAdminInviteMessage newsletterAdminInviteMessage = 78;
     optional PlaceholderMessage placeholderMessage = 80;
     optional SecretEncryptedMessage secretEncryptedMessage = 82;
->>>>>>> 6603b4e (minor update)
     message AppStateFatalExceptionNotification {
         repeated string collectionNames = 1;
         optional int64 timestamp = 2;
@@ -1350,11 +1304,7 @@ message Message {
         optional bytes encIv = 3;
     }
     
-<<<<<<< HEAD
-    message EncEventUpdateMessage {
-=======
     message EncEventResponseMessage {
->>>>>>> 6603b4e (minor update)
         optional MessageKey eventCreationMessageKey = 1;
         optional bytes encPayload = 2;
         optional bytes encIv = 3;
@@ -1366,14 +1316,6 @@ message Message {
         optional bytes encIv = 3;
     }
     
-<<<<<<< HEAD
-    message EventEditMessage {
-        optional Message.EventMessage eventEditMessage = 1;
-        optional int64 editTimestampMs = 2;
-    }
-    
-=======
->>>>>>> 6603b4e (minor update)
     message EventMessage {
         optional ContextInfo contextInfo = 1;
         optional bool isCanceled = 2;
@@ -1394,14 +1336,6 @@ message Message {
         }
     }
     
-<<<<<<< HEAD
-    message EventUpdateMessage {
-        optional Message.EventResponseMessage response = 1;
-        optional Message.EventEditMessage edit = 2;
-    }
-    
-=======
->>>>>>> 6603b4e (minor update)
     message ExtendedTextMessage {
         optional string text = 1;
         optional string matchedText = 2;
@@ -1451,14 +1385,6 @@ message Message {
         }
     }
     
-<<<<<<< HEAD
-    message ExtendedTextMessageWithParentKey {
-        optional MessageKey key = 1;
-        optional Message.ExtendedTextMessage extendedTextMessage = 2;
-    }
-    
-=======
->>>>>>> 6603b4e (minor update)
     message FutureProofMessage {
         optional Message message = 1;
     }
@@ -1589,15 +1515,12 @@ message Message {
         optional bytes thumbnailEncSha256 = 28;
         optional string staticUrl = 29;
         repeated InteractiveAnnotation annotations = 30;
-<<<<<<< HEAD
-=======
         optional ImageSourceType imageSourceType = 31;
         enum ImageSourceType {
             USER_IMAGE = 0;
             AI_GENERATED = 1;
             AI_MODIFIED = 2;
         }
->>>>>>> 6603b4e (minor update)
     }
     
     message InitialSecurityNotificationSettingSync {
@@ -1644,10 +1567,7 @@ message Message {
                 bytes jpegThumbnail = 6;
                 Message.VideoMessage videoMessage = 7;
                 Message.LocationMessage locationMessage = 8;
-<<<<<<< HEAD
-=======
                 Message.ProductMessage productMessage = 9;
->>>>>>> 6603b4e (minor update)
             }
         }
         
@@ -1830,10 +1750,7 @@ message Message {
         optional bytes jpegThumbnail = 3;
         optional string caption = 4;
         optional int64 inviteExpiration = 5;
-<<<<<<< HEAD
-=======
         optional ContextInfo contextInfo = 6;
->>>>>>> 6603b4e (minor update)
     }
     
     message OrderMessage {
@@ -2112,8 +2029,6 @@ message Message {
         }
     }
     
-<<<<<<< HEAD
-=======
     message SecretEncryptedMessage {
         optional MessageKey targetMessageKey = 1;
         optional bytes encPayload = 2;
@@ -2125,7 +2040,6 @@ message Message {
         }
     }
     
->>>>>>> 6603b4e (minor update)
     message SendPaymentMessage {
         optional Message noteMessage = 2;
         optional MessageKey requestMessageKey = 3;
@@ -2311,8 +2225,6 @@ message MsgOpaqueData {
     optional string targetMessageKey = 30;
     optional bytes encPayload = 31;
     optional bytes encIv = 32;
-<<<<<<< HEAD
-=======
     optional string eventName = 33;
     optional bool isEventCanceled = 34;
     optional string eventDescription = 35;
@@ -2328,7 +2240,6 @@ message MsgOpaqueData {
         optional bytes jpegThumbnail = 6;
     }
     
->>>>>>> 6603b4e (minor update)
     message PollOption {
         optional string name = 1;
     }
@@ -2755,10 +2666,7 @@ message StickerMetadata {
     optional uint64 fileLength = 9;
     optional float weight = 10;
     optional int64 lastStickerSentTs = 11;
-<<<<<<< HEAD
-=======
     optional bool isLottie = 12;
->>>>>>> 6603b4e (minor update)
 }
 
 message SyncActionData {
@@ -2812,15 +2720,12 @@ message SyncActionValue {
     optional LabelReorderingAction labelReorderingAction = 47;
     optional PaymentInfoAction paymentInfoAction = 48;
     optional CustomPaymentMethodsAction customPaymentMethodsAction = 49;
-<<<<<<< HEAD
-=======
     optional LockChatAction lockChatAction = 50;
     optional ChatLockSettings chatLockSettings = 51;
     optional WamoUserIdentifierAction wamoUserIdentifierAction = 52;
     optional PrivacySettingDisableLinkPreviewsAction privacySettingDisableLinkPreviewsAction = 53;
     optional DeviceCapabilities deviceCapabilities = 54;
     optional NoteEditAction noteEditAction = 55;
->>>>>>> 6603b4e (minor update)
     message AgentAction {
         optional string name = 1;
         optional int32 deviceID = 2;
@@ -2921,13 +2826,10 @@ message SyncActionValue {
         optional string locale = 1;
     }
     
-<<<<<<< HEAD
-=======
     message LockChatAction {
         optional bool locked = 1;
     }
     
->>>>>>> 6603b4e (minor update)
     message MarkChatAsReadAction {
         optional bool read = 1;
         optional SyncActionValue.SyncActionMessageRange messageRange = 2;
@@ -2956,8 +2858,6 @@ message SyncActionValue {
         optional bool autoMuted = 3;
     }
     
-<<<<<<< HEAD
-=======
     message NoteEditAction {
         optional NoteType type = 1;
         optional string chatJid = 2;
@@ -2970,7 +2870,6 @@ message SyncActionValue {
         }
     }
     
->>>>>>> 6603b4e (minor update)
     message NuxAction {
         optional bool acknowledged = 1;
     }
@@ -2995,13 +2894,10 @@ message SyncActionValue {
         optional string version = 1;
     }
     
-<<<<<<< HEAD
-=======
     message PrivacySettingDisableLinkPreviewsAction {
         optional bool isPreviewsDisabled = 1;
     }
     
->>>>>>> 6603b4e (minor update)
     message PrivacySettingRelayAllCalls {
         optional bool isEnabled = 1;
     }
@@ -3055,10 +2951,7 @@ message SyncActionValue {
         optional uint64 fileLength = 8;
         optional bool isFavorite = 9;
         optional uint32 deviceIdHint = 10;
-<<<<<<< HEAD
-=======
         optional bool isLottie = 11;
->>>>>>> 6603b4e (minor update)
     }
     
     message SubscriptionAction {
@@ -3090,13 +2983,10 @@ message SyncActionValue {
         optional bool muted = 1;
     }
     
-<<<<<<< HEAD
-=======
     message WamoUserIdentifierAction {
         optional string identifier = 1;
     }
     
->>>>>>> 6603b4e (minor update)
 }
 
 message SyncdIndex {
@@ -3173,8 +3063,6 @@ message TemplateButton {
     
 }
 
-<<<<<<< HEAD
-=======
 message UserPassword {
     optional Encoding encoding = 1;
     optional Transformer transformer = 2;
@@ -3202,7 +3090,6 @@ message UserPassword {
     
 }
 
->>>>>>> 6603b4e (minor update)
 message UserReceipt {
     required string userJid = 1;
     optional int64 receiptTimestamp = 2;
@@ -3338,10 +3225,7 @@ message WebMessageInfo {
     repeated EventResponse eventResponses = 61;
     optional ReportingTokenInfo reportingTokenInfo = 62;
     optional uint64 newsletterServerId = 63;
-<<<<<<< HEAD
-=======
     optional EventAdditionalMetadata eventAdditionalMetadata = 64;
->>>>>>> 6603b4e (minor update)
     enum BizPrivacyStatus {
         E2EE = 0;
         FB = 2;
@@ -3558,13 +3442,10 @@ message WebMessageInfo {
         REMINDER_SETUP_MESSAGE = 198;
         REMINDER_SENT_MESSAGE = 199;
         REMINDER_CANCEL_MESSAGE = 200;
-<<<<<<< HEAD
-=======
         BIZ_COEX_PRIVACY_INIT = 201;
         BIZ_COEX_PRIVACY_TRANSITION = 202;
         GROUP_DEACTIVATED = 203;
         COMMUNITY_DEACTIVATE_SIBLING_GROUP = 204;
->>>>>>> 6603b4e (minor update)
     }
 }
 

@@ -4,13 +4,9 @@ export type GroupParticipant = (Contact & {
     isSuperAdmin?: boolean;
     admin?: 'admin' | 'superadmin' | null;
 });
-<<<<<<< HEAD
-export type ParticipantAction = 'add' | 'remove' | 'promote' | 'demote';
-=======
 export type ParticipantAction = 'add' | 'remove' | 'promote' | 'demote' | 'modify';
 export type RequestJoinAction = 'created' | 'revoked' | 'rejected';
 export type RequestJoinMethod = 'invite_link' | 'linked_group_join' | 'non_admin_add' | undefined;
->>>>>>> 6603b4e (minor update)
 export interface GroupMetadata {
     id: string;
     owner: string | undefined;

@@ -1,8 +1,5 @@
 /// <reference types="node" />
-<<<<<<< HEAD
-=======
 /// <reference types="node" />
->>>>>>> 6603b4e (minor update)
 import { Boom } from '@hapi/boom';
 import { SocketConfig } from '../Types';
 import { BinaryNode } from '../WABinary';

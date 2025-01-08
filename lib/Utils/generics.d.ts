@@ -1,21 +1,4 @@
 /// <reference types="node" />
-<<<<<<< HEAD
-import { AxiosRequestConfig } from 'axios';
-import { Logger } from 'pino';
-import { proto } from '../../WAProto';
-import { BaileysEventEmitter, BaileysEventMap, WACallUpdateType, WAVersion } from '../Types';
-import { BinaryNode } from '../WABinary';
-export declare const Browsers: {
-    ubuntu: (browser: any) => [string, string, string];
-    macOS: (browser: any) => [string, string, string];
-    baileys: (browser: any) => [string, string, string];
-    windows: (browser: any) => [string, string, string];
-    iOS: (browser: any) => [string, string, string];
-    linux: (browser: any) => [string, string, string];
-    /** The appropriate browser based on your OS & release */
-    appropriate: (browser: any) => [string, string, string];
-};
-=======
 /// <reference types="node" />
 import { AxiosRequestConfig } from 'axios';
 import { Logger } from 'pino';
@@ -24,7 +7,6 @@ import { BaileysEventEmitter, BaileysEventMap, BrowsersMap, WACallUpdateType, WA
 import { BinaryNode } from '../WABinary';
 export declare const Browsers: BrowsersMap;
 export declare const getPlatformId: (browser: string) => any;
->>>>>>> 6603b4e (minor update)
 export declare const BufferJSON: {
     replacer: (k: any, value: any) => any;
     reviver: (_: any, value: any) => any;
@@ -33,10 +15,7 @@ export declare const getKeyAuthor: (key: proto.IMessageKey | undefined | null, m
 export declare const writeRandomPadMax16: (msg: Uint8Array) => Buffer;
 export declare const unpadRandomMax16: (e: Uint8Array | Buffer) => Uint8Array;
 export declare const encodeWAMessage: (message: proto.IMessage) => Buffer;
-<<<<<<< HEAD
-=======
 export declare const encodeNewsletterMessage: (message: proto.IMessage) => Uint8Array;
->>>>>>> 6603b4e (minor update)
 export declare const generateRegistrationId: () => number;
 export declare const encodeBigEndian: (e: number, t?: number) => Uint8Array;
 export declare const toNumber: (t: Long | number | null | undefined) => number;

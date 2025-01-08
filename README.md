@@ -5,11 +5,7 @@
 This library was originally a project for **CS-2362 at Ashoka University** and is in no way affiliated with or endorsed by WhatsApp. Use at your own discretion. Do not spam people with this. We discourage any stalkerware, bulk or automated messaging usage. 
 
 #### Liability and License Notice
-<<<<<<< HEAD
 Baileys and its maintainers cannot be held liable for misuse of this application, as stated in the [MIT license](https://github.com/LT-SYAII/Bail/blob/master/LICENSE).
-=======
-Baileys and its maintainers cannot be held liable for misuse of this application, as stated in the [MIT license](https://github.com/WhiskeySockets/Baileys/blob/master/LICENSE).
->>>>>>> 6603b4e (minor update)
 The maintainers of Baileys do not in any way condone the use of this application in practices that violate the Terms of Service of WhatsApp. The maintainers of this application call upon the personal responsibility of its users to use this application in a fair way, as it is intended to be used.
 ##
 
@@ -37,29 +33,17 @@ To run the example script, download or clone the repo and then type the followin
 
 Use the stable version:
 ```
-<<<<<<< HEAD
 yarn add akiraa-baileys
-=======
-yarn add @whiskeysockets/baileys
->>>>>>> 6603b4e (minor update)
 ```
 
 Use the edge version (no guarantee of stability, but latest fixes + features)
 ```
-<<<<<<< HEAD
 yarn add github:LT-SYAII/Bail
-=======
-yarn add github:WhiskeySockets/Baileys
->>>>>>> 6603b4e (minor update)
 ```
 
 Then import your code using:
 ``` ts 
-<<<<<<< HEAD
 import makeWASocket from 'akiraa-baileys'
-=======
-import makeWASocket from '@whiskeysockets/baileys'
->>>>>>> 6603b4e (minor update)
 ```
 
 ## Unit Tests
@@ -71,11 +55,7 @@ TODO
 WhatsApp provides a multi-device API that allows Baileys to be authenticated as a second WhatsApp client by scanning a QR code with WhatsApp on your phone.
 
 ``` ts
-<<<<<<< HEAD
 import makeWASocket, { DisconnectReason } from 'akiraa-baileys'
-=======
-import makeWASocket, { DisconnectReason } from '@whiskeysockets/baileys'
->>>>>>> 6603b4e (minor update)
 import { Boom } from '@hapi/boom'
 
 async function connectToWhatsApp () {
@@ -109,7 +89,6 @@ connectToWhatsApp()
 
 If the connection is successful, you will see a QR code printed on your terminal screen, scan it with WhatsApp on your phone and you'll be logged in!
 
-<<<<<<< HEAD
 **Note:** install `qrcode-terminal` using `yarn add qrcode-terminal` to auto-print the QR to the terminal.
 
 **Note:** the code to support the legacy version of WA Web (pre multi-device) has been removed in v5. Only the standard multi-device connection is now supported. This is done as WA seems to have completely dropped support for the legacy version.
@@ -120,8 +99,6 @@ Baileys also supports the native mobile API, which allows users to authenticate 
 
 Run the [example](Example/example.ts) file with ``--mobile`` cli flag to use the native mobile API.
 
-=======
->>>>>>> 6603b4e (minor update)
 ## Configuring the Connection
 
 You can configure the connection by passing a `SocketConfig` object.
@@ -216,11 +193,7 @@ You obviously don't want to keep scanning the QR code every time you want to con
 
 So, you can load the credentials to log back in:
 ``` ts
-<<<<<<< HEAD
 import makeWASocket, { BufferJSON, useMultiFileAuthState } from 'akiraa-baileys'
-=======
-import makeWASocket, { BufferJSON, useMultiFileAuthState } from '@whiskeysockets/baileys'
->>>>>>> 6603b4e (minor update)
 import * as fs from 'fs'
 
 // utility function to help save the auth state in a single folder
@@ -335,11 +308,7 @@ Baileys does not come with a defacto storage for chats, contacts, or messages. H
 It can be used as follows:
 
 ``` ts
-<<<<<<< HEAD
 import makeWASocket, { makeInMemoryStore } from 'akiraa-baileys'
-=======
-import makeWASocket, { makeInMemoryStore } from '@whiskeysockets/baileys'
->>>>>>> 6603b4e (minor update)
 // the store maintains the data of the WA connection in memory
 // can be written out to a file & read from it
 const store = makeInMemoryStore({ })
@@ -355,21 +324,13 @@ const sock = makeWASocket({ })
 // the store can listen from a new socket once the current socket outlives its lifetime
 store.bind(sock.ev)
 
-<<<<<<< HEAD
 sock.ev.on('chats.set', () => {
-=======
-sock.ev.on('chats.upsert', () => {
->>>>>>> 6603b4e (minor update)
     // can use "store.chats" however you want, even after the socket dies out
     // "chats" => a KeyedDB instance
     console.log('got chats', store.chats.all())
 })
 
-<<<<<<< HEAD
 sock.ev.on('contacts.set', () => {
-=======
-sock.ev.on('contacts.upsert', () => {
->>>>>>> 6603b4e (minor update)
     console.log('got contacts', Object.values(store.contacts))
 })
 
@@ -386,11 +347,7 @@ The store also provides some simple functions such as `loadMessages` that utiliz
 ### Non-Media Messages
 
 ``` ts
-<<<<<<< HEAD
 import { MessageType, MessageOptions, Mimetype } from 'akiraa-baileys'
-=======
-import { MessageType, MessageOptions, Mimetype } from '@whiskeysockets/baileys'
->>>>>>> 6603b4e (minor update)
 
 const id = 'abcd@s.whatsapp.net' // the WhatsApp ID 
 // send a simple text!
@@ -449,11 +406,7 @@ Sending media (video, stickers, images) is easier & more efficient than ever.
 - When specifying a media url, Baileys never loads the entire buffer into memory; it even encrypts the media as a readable stream.
 
 ``` ts
-<<<<<<< HEAD
 import { MessageType, MessageOptions, Mimetype } from 'akiraa-baileys'
-=======
-import { MessageType, MessageOptions, Mimetype } from '@whiskeysockets/baileys'
->>>>>>> 6603b4e (minor update)
 // Sending gifs
 await sock.sendMessage(
     id, 
@@ -469,12 +422,7 @@ await sock.sendMessage(
     { 
         video: "./Media/ma_gif.mp4", 
         caption: "hello!",
-<<<<<<< HEAD
         gifPlayback: true
-=======
-        gifPlayback: true,
-	ptv: false // if set to true, will send as a `video note`
->>>>>>> 6603b4e (minor update)
     }
 )
 
@@ -507,11 +455,7 @@ await sock.sendMessage(
                                     Do not enter this field if you want to automatically generate a thumb
                                 */
         mimetype: Mimetype.pdf, /* (for media messages) specify the type of media (optional for all media types except documents),
-<<<<<<< HEAD
                                     import {Mimetype} from 'akiraa-baileys'
-=======
-                                    import {Mimetype} from '@whiskeysockets/baileys'
->>>>>>> 6603b4e (minor update)
                                 */
         fileName: 'somefile.pdf', // (for media messages) file name for the media
         /* will send audio messages as voice notes, if set to true */
@@ -570,11 +514,7 @@ The presence expires after about 10 seconds.
 If you want to save the media you received
 ``` ts
 import { writeFile } from 'fs/promises'
-<<<<<<< HEAD
 import { downloadMediaMessage } from 'akiraa-baileys'
-=======
-import { downloadMediaMessage } from '@whiskeysockets/baileys'
->>>>>>> 6603b4e (minor update)
 
 sock.ev.on('messages.upsert', async ({ messages }) => {
     const m = messages[0]
@@ -773,7 +713,6 @@ await sock.sendMessage(
     ```
 Of course, replace ``` xyz ``` with an actual ID. 
 
-<<<<<<< HEAD
 ## Newsletter
 - To get info newsletter
     ``` ts
@@ -832,8 +771,6 @@ Of course, replace ``` xyz ``` with an actual ID.
     const id = "175"
     await sock.newsletterReactMessage("abcd@newsletter", id, "🥳")
     ```
-=======
->>>>>>> 6603b4e (minor update)
 ## Groups
 - To create a group
     ``` ts
@@ -955,11 +892,7 @@ Of course, replace ``` xyz ``` with an actual ID.
     ```
 - To update the Groups Add privacy
     ``` ts
-<<<<<<< HEAD
     const value = 'all' // 'contacts' | 'contact_blacklist' | 'none'
-=======
-    const value = 'all' // 'contacts' | 'contact_blacklist'
->>>>>>> 6603b4e (minor update)
     await sock.updateGroupsAddPrivacy(value)
     ```
 - To update the Default Disappearing Mode
@@ -1020,8 +953,4 @@ Some examples:
     // for any message with tag 'edge_routing', id attribute = abcd & first content node routing_info
     sock.ws.on(`CB:edge_routing,id:abcd,routing_info`, (node: BinaryNode) => { })
     ```
-<<<<<<< HEAD
  Also, this repo is now licenced under GPL 3 since it uses [libsignal-node](https://git.questbook.io/backend/service-coderunner/-/merge_requests/1)
-=======
- Also, this repo is now licenced under GPL 3 since it uses [libsignal-node](https://git.questbook.io/backend/service-coderunner/-/merge_requests/1)
->>>>>>> 6603b4e (minor update)

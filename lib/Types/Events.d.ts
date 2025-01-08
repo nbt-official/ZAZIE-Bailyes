@@ -4,19 +4,12 @@ import { AuthenticationCreds } from './Auth';
 import { WACallEvent } from './Call';
 import { Chat, ChatUpdate, PresenceData } from './Chat';
 import { Contact } from './Contact';
-<<<<<<< HEAD
-import { GroupMetadata, ParticipantAction } from './GroupMetadata';
-=======
 import { GroupMetadata, ParticipantAction, RequestJoinAction, RequestJoinMethod } from './GroupMetadata';
->>>>>>> 6603b4e (minor update)
 import { Label } from './Label';
 import { LabelAssociation } from './LabelAssociation';
 import { MessageUpsertType, MessageUserReceiptUpdate, WAMessage, WAMessageKey, WAMessageUpdate } from './Message';
 import { ConnectionState } from './State';
-<<<<<<< HEAD
-=======
 import { NewsletterSettingsUpdate, SubscriberAction, NewsletterViewRole } from './Newsletter';
->>>>>>> 6603b4e (minor update)
 export type BaileysEventMap = {
     /** connection state has been updated -- WS closed, opened, connecting etc. */
     'connection.update': Partial<ConnectionState>;
@@ -86,8 +79,6 @@ export type BaileysEventMap = {
         participants: string[];
         action: ParticipantAction;
     };
-<<<<<<< HEAD
-=======
     'group.join-request': {
         id: string;
         author: string;
@@ -121,7 +112,6 @@ export type BaileysEventMap = {
         id: string;
         update: NewsletterSettingsUpdate;
     };
->>>>>>> 6603b4e (minor update)
     'blocklist.set': {
         blocklist: string[];
     };

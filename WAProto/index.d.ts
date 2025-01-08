@@ -1357,12 +1357,9 @@ export namespace proto {
 
         /** BotMetadata invokerJid */
         invokerJid?: (string|null);
-<<<<<<< HEAD
-=======
 
         /** BotMetadata searchMetadata */
         searchMetadata?: (proto.IBotSearchMetadata|null);
->>>>>>> 6603b4e (minor update)
     }
 
     /** Represents a BotMetadata. */
@@ -1389,12 +1386,9 @@ export namespace proto {
         /** BotMetadata invokerJid. */
         public invokerJid: string;
 
-<<<<<<< HEAD
-=======
         /** BotMetadata searchMetadata. */
         public searchMetadata?: (proto.IBotSearchMetadata|null);
 
->>>>>>> 6603b4e (minor update)
         /**
          * Creates a new BotMetadata instance using the specified properties.
          * @param [properties] Properties to set
@@ -1490,16 +1484,11 @@ export namespace proto {
         /** BotPluginMetadata expectedLinksCount */
         expectedLinksCount?: (number|null);
 
-<<<<<<< HEAD
-        /** BotPluginMetadata pluginVersion */
-        pluginVersion?: (number|null);
-=======
         /** BotPluginMetadata searchQuery */
         searchQuery?: (string|null);
 
         /** BotPluginMetadata parentPluginMessageKey */
         parentPluginMessageKey?: (proto.IMessageKey|null);
->>>>>>> 6603b4e (minor update)
     }
 
     /** Represents a BotPluginMetadata. */
@@ -1532,16 +1521,11 @@ export namespace proto {
         /** BotPluginMetadata expectedLinksCount. */
         public expectedLinksCount: number;
 
-<<<<<<< HEAD
-        /** BotPluginMetadata pluginVersion. */
-        public pluginVersion: number;
-=======
         /** BotPluginMetadata searchQuery. */
         public searchQuery: string;
 
         /** BotPluginMetadata parentPluginMessageKey. */
         public parentPluginMessageKey?: (proto.IMessageKey|null);
->>>>>>> 6603b4e (minor update)
 
         /**
          * Creates a new BotPluginMetadata instance using the specified properties.
@@ -1629,8 +1613,6 @@ export namespace proto {
         }
     }
 
-<<<<<<< HEAD
-=======
     /** Properties of a BotSearchMetadata. */
     interface IBotSearchMetadata {
 
@@ -1721,7 +1703,6 @@ export namespace proto {
         public toJSON(): { [k: string]: any };
     }
 
->>>>>>> 6603b4e (minor update)
     /** Properties of a BotSuggestedPromptMetadata. */
     interface IBotSuggestedPromptMetadata {
 
@@ -2433,8 +2414,6 @@ export namespace proto {
         }
     }
 
-<<<<<<< HEAD
-=======
     /** Properties of a ChatLockSettings. */
     interface IChatLockSettings {
 
@@ -2531,7 +2510,6 @@ export namespace proto {
         public toJSON(): { [k: string]: any };
     }
 
->>>>>>> 6603b4e (minor update)
     /** Properties of a ChatRowOpaqueData. */
     interface IChatRowOpaqueData {
 
@@ -3692,12 +3670,9 @@ export namespace proto {
 
             /** UserAgent deviceType */
             deviceType?: (proto.ClientPayload.UserAgent.DeviceType|null);
-<<<<<<< HEAD
-=======
 
             /** UserAgent deviceModelType */
             deviceModelType?: (string|null);
->>>>>>> 6603b4e (minor update)
         }
 
         /** Represents a UserAgent. */
@@ -3754,12 +3729,9 @@ export namespace proto {
             /** UserAgent deviceType. */
             public deviceType: proto.ClientPayload.UserAgent.DeviceType;
 
-<<<<<<< HEAD
-=======
             /** UserAgent deviceModelType. */
             public deviceModelType: string;
 
->>>>>>> 6603b4e (minor update)
             /**
              * Creates a new UserAgent instance using the specified properties.
              * @param [properties] Properties to set
@@ -4473,12 +4445,9 @@ export namespace proto {
 
         /** ContextInfo dataSharingContext */
         dataSharingContext?: (proto.ContextInfo.IDataSharingContext|null);
-<<<<<<< HEAD
-=======
 
         /** ContextInfo alwaysShowAdAttribution */
         alwaysShowAdAttribution?: (boolean|null);
->>>>>>> 6603b4e (minor update)
     }
 
     /** Represents a ContextInfo. */
@@ -4589,12 +4558,9 @@ export namespace proto {
         /** ContextInfo dataSharingContext. */
         public dataSharingContext?: (proto.ContextInfo.IDataSharingContext|null);
 
-<<<<<<< HEAD
-=======
         /** ContextInfo alwaysShowAdAttribution. */
         public alwaysShowAdAttribution: boolean;
 
->>>>>>> 6603b4e (minor update)
         /**
          * Creates a new ContextInfo instance using the specified properties.
          * @param [properties] Properties to set
@@ -5502,12 +5468,9 @@ export namespace proto {
 
         /** Conversation commentsCount */
         commentsCount?: (number|null);
-<<<<<<< HEAD
-=======
 
         /** Conversation locked */
         locked?: (boolean|null);
->>>>>>> 6603b4e (minor update)
     }
 
     /** Represents a Conversation. */
@@ -5654,12 +5617,9 @@ export namespace proto {
         /** Conversation commentsCount. */
         public commentsCount: number;
 
-<<<<<<< HEAD
-=======
         /** Conversation locked. */
         public locked: boolean;
 
->>>>>>> 6603b4e (minor update)
         /**
          * Creates a new Conversation instance using the specified properties.
          * @param [properties] Properties to set
@@ -5741,8 +5701,6 @@ export namespace proto {
         }
     }
 
-<<<<<<< HEAD
-=======
     /** Properties of a DeviceCapabilities. */
     interface IDeviceCapabilities {
 
@@ -5843,7 +5801,6 @@ export namespace proto {
         }
     }
 
->>>>>>> 6603b4e (minor update)
     /** Properties of a DeviceConsistencyCodeMessage. */
     interface IDeviceConsistencyCodeMessage {
 
@@ -6328,15 +6285,12 @@ export namespace proto {
 
             /** HistorySyncConfig supportCagReactionsAndPolls */
             supportCagReactionsAndPolls?: (boolean|null);
-<<<<<<< HEAD
-=======
 
             /** HistorySyncConfig supportBizHostedMsg */
             supportBizHostedMsg?: (boolean|null);
 
             /** HistorySyncConfig supportRecentSyncChunkMessageCountTuning */
             supportRecentSyncChunkMessageCountTuning?: (boolean|null);
->>>>>>> 6603b4e (minor update)
         }
 
         /** Represents a HistorySyncConfig. */
@@ -6372,15 +6326,12 @@ export namespace proto {
             /** HistorySyncConfig supportCagReactionsAndPolls. */
             public supportCagReactionsAndPolls: boolean;
 
-<<<<<<< HEAD
-=======
             /** HistorySyncConfig supportBizHostedMsg. */
             public supportBizHostedMsg: boolean;
 
             /** HistorySyncConfig supportRecentSyncChunkMessageCountTuning. */
             public supportRecentSyncChunkMessageCountTuning: boolean;
 
->>>>>>> 6603b4e (minor update)
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
              * @param [properties] Properties to set
@@ -6704,8 +6655,6 @@ export namespace proto {
         public toJSON(): { [k: string]: any };
     }
 
-<<<<<<< HEAD
-=======
     /** Properties of an EventAdditionalMetadata. */
     interface IEventAdditionalMetadata {
 
@@ -6796,7 +6745,6 @@ export namespace proto {
         public toJSON(): { [k: string]: any };
     }
 
->>>>>>> 6603b4e (minor update)
     /** Properties of an EventResponse. */
     interface IEventResponse {
 
@@ -7177,12 +7125,9 @@ export namespace proto {
 
         /** GlobalSettings groupNotificationSettings */
         groupNotificationSettings?: (proto.INotificationSettings|null);
-<<<<<<< HEAD
-=======
 
         /** GlobalSettings chatLockSettings */
         chatLockSettings?: (proto.IChatLockSettings|null);
->>>>>>> 6603b4e (minor update)
     }
 
     /** Represents a GlobalSettings. */
@@ -7248,12 +7193,9 @@ export namespace proto {
         /** GlobalSettings groupNotificationSettings. */
         public groupNotificationSettings?: (proto.INotificationSettings|null);
 
-<<<<<<< HEAD
-=======
         /** GlobalSettings chatLockSettings. */
         public chatLockSettings?: (proto.IChatLockSettings|null);
 
->>>>>>> 6603b4e (minor update)
         /**
          * Creates a new GlobalSettings instance using the specified properties.
          * @param [properties] Properties to set
@@ -9772,11 +9714,7 @@ export namespace proto {
         interface IProgressiveJpegDetails {
 
             /** ProgressiveJpegDetails scanLengths */
-<<<<<<< HEAD
-            scanLengths?: ((number|Long)[]|null);
-=======
             scanLengths?: (number[]|null);
->>>>>>> 6603b4e (minor update)
 
             /** ProgressiveJpegDetails sidecar */
             sidecar?: (Uint8Array|null);
@@ -9792,11 +9730,7 @@ export namespace proto {
             constructor(properties?: proto.MediaEntry.IProgressiveJpegDetails);
 
             /** ProgressiveJpegDetails scanLengths. */
-<<<<<<< HEAD
-            public scanLengths: (number|Long)[];
-=======
             public scanLengths: number[];
->>>>>>> 6603b4e (minor update)
 
             /** ProgressiveJpegDetails sidecar. */
             public sidecar: Uint8Array;
@@ -10287,34 +10221,20 @@ export namespace proto {
         /** Message eventMessage */
         eventMessage?: (proto.Message.IEventMessage|null);
 
-<<<<<<< HEAD
-=======
         /** Message encEventResponseMessage */
         encEventResponseMessage?: (proto.Message.IEncEventResponseMessage|null);
 
->>>>>>> 6603b4e (minor update)
         /** Message commentMessage */
         commentMessage?: (proto.Message.ICommentMessage|null);
 
         /** Message newsletterAdminInviteMessage */
         newsletterAdminInviteMessage?: (proto.Message.INewsletterAdminInviteMessage|null);
 
-<<<<<<< HEAD
-        /** Message extendedTextMessageWithParentKey */
-        extendedTextMessageWithParentKey?: (proto.Message.IExtendedTextMessageWithParentKey|null);
-
-        /** Message placeholderMessage */
-        placeholderMessage?: (proto.Message.IPlaceholderMessage|null);
-
-        /** Message encEventUpdateMessage */
-        encEventUpdateMessage?: (proto.Message.IEncEventUpdateMessage|null);
-=======
         /** Message placeholderMessage */
         placeholderMessage?: (proto.Message.IPlaceholderMessage|null);
 
         /** Message secretEncryptedMessage */
         secretEncryptedMessage?: (proto.Message.ISecretEncryptedMessage|null);
->>>>>>> 6603b4e (minor update)
     }
 
     /** Represents a Message. */
@@ -10515,34 +10435,20 @@ export namespace proto {
         /** Message eventMessage. */
         public eventMessage?: (proto.Message.IEventMessage|null);
 
-<<<<<<< HEAD
-=======
         /** Message encEventResponseMessage. */
         public encEventResponseMessage?: (proto.Message.IEncEventResponseMessage|null);
 
->>>>>>> 6603b4e (minor update)
         /** Message commentMessage. */
         public commentMessage?: (proto.Message.ICommentMessage|null);
 
         /** Message newsletterAdminInviteMessage. */
         public newsletterAdminInviteMessage?: (proto.Message.INewsletterAdminInviteMessage|null);
 
-<<<<<<< HEAD
-        /** Message extendedTextMessageWithParentKey. */
-        public extendedTextMessageWithParentKey?: (proto.Message.IExtendedTextMessageWithParentKey|null);
-
-        /** Message placeholderMessage. */
-        public placeholderMessage?: (proto.Message.IPlaceholderMessage|null);
-
-        /** Message encEventUpdateMessage. */
-        public encEventUpdateMessage?: (proto.Message.IEncEventUpdateMessage|null);
-=======
         /** Message placeholderMessage. */
         public placeholderMessage?: (proto.Message.IPlaceholderMessage|null);
 
         /** Message secretEncryptedMessage. */
         public secretEncryptedMessage?: (proto.Message.ISecretEncryptedMessage|null);
->>>>>>> 6603b4e (minor update)
 
         /**
          * Creates a new Message instance using the specified properties.
@@ -13633,83 +13539,6 @@ export namespace proto {
             public toJSON(): { [k: string]: any };
         }
 
-<<<<<<< HEAD
-        /** Properties of an EncEventUpdateMessage. */
-        interface IEncEventUpdateMessage {
-
-            /** EncEventUpdateMessage eventCreationMessageKey */
-            eventCreationMessageKey?: (proto.IMessageKey|null);
-
-            /** EncEventUpdateMessage encPayload */
-            encPayload?: (Uint8Array|null);
-
-            /** EncEventUpdateMessage encIv */
-            encIv?: (Uint8Array|null);
-        }
-
-        /** Represents an EncEventUpdateMessage. */
-        class EncEventUpdateMessage implements IEncEventUpdateMessage {
-
-            /**
-             * Constructs a new EncEventUpdateMessage.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: proto.Message.IEncEventUpdateMessage);
-
-            /** EncEventUpdateMessage eventCreationMessageKey. */
-            public eventCreationMessageKey?: (proto.IMessageKey|null);
-
-            /** EncEventUpdateMessage encPayload. */
-            public encPayload: Uint8Array;
-
-            /** EncEventUpdateMessage encIv. */
-            public encIv: Uint8Array;
-
-            /**
-             * Creates a new EncEventUpdateMessage instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns EncEventUpdateMessage instance
-             */
-            public static create(properties?: proto.Message.IEncEventUpdateMessage): proto.Message.EncEventUpdateMessage;
-
-            /**
-             * Encodes the specified EncEventUpdateMessage message. Does not implicitly {@link proto.Message.EncEventUpdateMessage.verify|verify} messages.
-             * @param message EncEventUpdateMessage message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: proto.Message.IEncEventUpdateMessage, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified EncEventUpdateMessage message, length delimited. Does not implicitly {@link proto.Message.EncEventUpdateMessage.verify|verify} messages.
-             * @param message EncEventUpdateMessage message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: proto.Message.IEncEventUpdateMessage, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes an EncEventUpdateMessage message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns EncEventUpdateMessage
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.EncEventUpdateMessage;
-
-            /**
-             * Decodes an EncEventUpdateMessage message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns EncEventUpdateMessage
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.EncEventUpdateMessage;
-
-            /**
-             * Verifies an EncEventUpdateMessage message.
-=======
         /** Properties of an EncEventResponseMessage. */
         interface IEncEventResponseMessage {
 
@@ -13785,31 +13614,12 @@ export namespace proto {
 
             /**
              * Verifies an EncEventResponseMessage message.
->>>>>>> 6603b4e (minor update)
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-<<<<<<< HEAD
-             * Creates an EncEventUpdateMessage message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns EncEventUpdateMessage
-             */
-            public static fromObject(object: { [k: string]: any }): proto.Message.EncEventUpdateMessage;
-
-            /**
-             * Creates a plain object from an EncEventUpdateMessage message. Also converts values to other types if specified.
-             * @param message EncEventUpdateMessage
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: proto.Message.EncEventUpdateMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this EncEventUpdateMessage to JSON.
-=======
              * Creates an EncEventResponseMessage message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
              * @returns EncEventResponseMessage
@@ -13826,7 +13636,6 @@ export namespace proto {
 
             /**
              * Converts this EncEventResponseMessage to JSON.
->>>>>>> 6603b4e (minor update)
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -13934,105 +13743,6 @@ export namespace proto {
             public toJSON(): { [k: string]: any };
         }
 
-<<<<<<< HEAD
-        /** Properties of an EventEditMessage. */
-        interface IEventEditMessage {
-
-            /** EventEditMessage eventEditMessage */
-            eventEditMessage?: (proto.Message.IEventMessage|null);
-
-            /** EventEditMessage editTimestampMs */
-            editTimestampMs?: (number|Long|null);
-        }
-
-        /** Represents an EventEditMessage. */
-        class EventEditMessage implements IEventEditMessage {
-
-            /**
-             * Constructs a new EventEditMessage.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: proto.Message.IEventEditMessage);
-
-            /** EventEditMessage eventEditMessage. */
-            public eventEditMessage?: (proto.Message.IEventMessage|null);
-
-            /** EventEditMessage editTimestampMs. */
-            public editTimestampMs: (number|Long);
-
-            /**
-             * Creates a new EventEditMessage instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns EventEditMessage instance
-             */
-            public static create(properties?: proto.Message.IEventEditMessage): proto.Message.EventEditMessage;
-
-            /**
-             * Encodes the specified EventEditMessage message. Does not implicitly {@link proto.Message.EventEditMessage.verify|verify} messages.
-             * @param message EventEditMessage message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: proto.Message.IEventEditMessage, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified EventEditMessage message, length delimited. Does not implicitly {@link proto.Message.EventEditMessage.verify|verify} messages.
-             * @param message EventEditMessage message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: proto.Message.IEventEditMessage, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes an EventEditMessage message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns EventEditMessage
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.EventEditMessage;
-
-            /**
-             * Decodes an EventEditMessage message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns EventEditMessage
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.EventEditMessage;
-
-            /**
-             * Verifies an EventEditMessage message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates an EventEditMessage message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns EventEditMessage
-             */
-            public static fromObject(object: { [k: string]: any }): proto.Message.EventEditMessage;
-
-            /**
-             * Creates a plain object from an EventEditMessage message. Also converts values to other types if specified.
-             * @param message EventEditMessage
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: proto.Message.EventEditMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this EventEditMessage to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-=======
->>>>>>> 6603b4e (minor update)
         /** Properties of an EventMessage. */
         interface IEventMessage {
 
@@ -14265,105 +13975,6 @@ export namespace proto {
             }
         }
 
-<<<<<<< HEAD
-        /** Properties of an EventUpdateMessage. */
-        interface IEventUpdateMessage {
-
-            /** EventUpdateMessage response */
-            response?: (proto.Message.IEventResponseMessage|null);
-
-            /** EventUpdateMessage edit */
-            edit?: (proto.Message.IEventEditMessage|null);
-        }
-
-        /** Represents an EventUpdateMessage. */
-        class EventUpdateMessage implements IEventUpdateMessage {
-
-            /**
-             * Constructs a new EventUpdateMessage.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: proto.Message.IEventUpdateMessage);
-
-            /** EventUpdateMessage response. */
-            public response?: (proto.Message.IEventResponseMessage|null);
-
-            /** EventUpdateMessage edit. */
-            public edit?: (proto.Message.IEventEditMessage|null);
-
-            /**
-             * Creates a new EventUpdateMessage instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns EventUpdateMessage instance
-             */
-            public static create(properties?: proto.Message.IEventUpdateMessage): proto.Message.EventUpdateMessage;
-
-            /**
-             * Encodes the specified EventUpdateMessage message. Does not implicitly {@link proto.Message.EventUpdateMessage.verify|verify} messages.
-             * @param message EventUpdateMessage message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: proto.Message.IEventUpdateMessage, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified EventUpdateMessage message, length delimited. Does not implicitly {@link proto.Message.EventUpdateMessage.verify|verify} messages.
-             * @param message EventUpdateMessage message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: proto.Message.IEventUpdateMessage, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes an EventUpdateMessage message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns EventUpdateMessage
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.EventUpdateMessage;
-
-            /**
-             * Decodes an EventUpdateMessage message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns EventUpdateMessage
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.EventUpdateMessage;
-
-            /**
-             * Verifies an EventUpdateMessage message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates an EventUpdateMessage message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns EventUpdateMessage
-             */
-            public static fromObject(object: { [k: string]: any }): proto.Message.EventUpdateMessage;
-
-            /**
-             * Creates a plain object from an EventUpdateMessage message. Also converts values to other types if specified.
-             * @param message EventUpdateMessage
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: proto.Message.EventUpdateMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this EventUpdateMessage to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-=======
->>>>>>> 6603b4e (minor update)
         /** Properties of an ExtendedTextMessage. */
         interface IExtendedTextMessage {
 
@@ -14623,105 +14234,6 @@ export namespace proto {
             }
         }
 
-<<<<<<< HEAD
-        /** Properties of an ExtendedTextMessageWithParentKey. */
-        interface IExtendedTextMessageWithParentKey {
-
-            /** ExtendedTextMessageWithParentKey key */
-            key?: (proto.IMessageKey|null);
-
-            /** ExtendedTextMessageWithParentKey extendedTextMessage */
-            extendedTextMessage?: (proto.Message.IExtendedTextMessage|null);
-        }
-
-        /** Represents an ExtendedTextMessageWithParentKey. */
-        class ExtendedTextMessageWithParentKey implements IExtendedTextMessageWithParentKey {
-
-            /**
-             * Constructs a new ExtendedTextMessageWithParentKey.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: proto.Message.IExtendedTextMessageWithParentKey);
-
-            /** ExtendedTextMessageWithParentKey key. */
-            public key?: (proto.IMessageKey|null);
-
-            /** ExtendedTextMessageWithParentKey extendedTextMessage. */
-            public extendedTextMessage?: (proto.Message.IExtendedTextMessage|null);
-
-            /**
-             * Creates a new ExtendedTextMessageWithParentKey instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ExtendedTextMessageWithParentKey instance
-             */
-            public static create(properties?: proto.Message.IExtendedTextMessageWithParentKey): proto.Message.ExtendedTextMessageWithParentKey;
-
-            /**
-             * Encodes the specified ExtendedTextMessageWithParentKey message. Does not implicitly {@link proto.Message.ExtendedTextMessageWithParentKey.verify|verify} messages.
-             * @param message ExtendedTextMessageWithParentKey message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: proto.Message.IExtendedTextMessageWithParentKey, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ExtendedTextMessageWithParentKey message, length delimited. Does not implicitly {@link proto.Message.ExtendedTextMessageWithParentKey.verify|verify} messages.
-             * @param message ExtendedTextMessageWithParentKey message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: proto.Message.IExtendedTextMessageWithParentKey, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes an ExtendedTextMessageWithParentKey message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ExtendedTextMessageWithParentKey
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ExtendedTextMessageWithParentKey;
-
-            /**
-             * Decodes an ExtendedTextMessageWithParentKey message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ExtendedTextMessageWithParentKey
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ExtendedTextMessageWithParentKey;
-
-            /**
-             * Verifies an ExtendedTextMessageWithParentKey message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates an ExtendedTextMessageWithParentKey message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ExtendedTextMessageWithParentKey
-             */
-            public static fromObject(object: { [k: string]: any }): proto.Message.ExtendedTextMessageWithParentKey;
-
-            /**
-             * Creates a plain object from an ExtendedTextMessageWithParentKey message. Also converts values to other types if specified.
-             * @param message ExtendedTextMessageWithParentKey
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: proto.Message.ExtendedTextMessageWithParentKey, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ExtendedTextMessageWithParentKey to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-=======
->>>>>>> 6603b4e (minor update)
         /** Properties of a FutureProofMessage. */
         interface IFutureProofMessage {
 
@@ -15889,12 +15401,9 @@ export namespace proto {
 
             /** ImageMessage annotations */
             annotations?: (proto.IInteractiveAnnotation[]|null);
-<<<<<<< HEAD
-=======
 
             /** ImageMessage imageSourceType */
             imageSourceType?: (proto.Message.ImageMessage.ImageSourceType|null);
->>>>>>> 6603b4e (minor update)
         }
 
         /** Represents an ImageMessage. */
@@ -15987,12 +15496,9 @@ export namespace proto {
             /** ImageMessage annotations. */
             public annotations: proto.IInteractiveAnnotation[];
 
-<<<<<<< HEAD
-=======
             /** ImageMessage imageSourceType. */
             public imageSourceType: proto.Message.ImageMessage.ImageSourceType;
 
->>>>>>> 6603b4e (minor update)
             /**
              * Creates a new ImageMessage instance using the specified properties.
              * @param [properties] Properties to set
@@ -16064,8 +15570,6 @@ export namespace proto {
             public toJSON(): { [k: string]: any };
         }
 
-<<<<<<< HEAD
-=======
         namespace ImageMessage {
 
             /** ImageSourceType enum. */
@@ -16076,7 +15580,6 @@ export namespace proto {
             }
         }
 
->>>>>>> 6603b4e (minor update)
         /** Properties of an InitialSecurityNotificationSettingSync. */
         interface IInitialSecurityNotificationSettingSync {
 
@@ -16708,12 +16211,9 @@ export namespace proto {
 
                 /** Header locationMessage */
                 locationMessage?: (proto.Message.ILocationMessage|null);
-<<<<<<< HEAD
-=======
 
                 /** Header productMessage */
                 productMessage?: (proto.Message.IProductMessage|null);
->>>>>>> 6603b4e (minor update)
             }
 
             /** Represents a Header. */
@@ -16749,16 +16249,11 @@ export namespace proto {
                 /** Header locationMessage. */
                 public locationMessage?: (proto.Message.ILocationMessage|null);
 
-<<<<<<< HEAD
-                /** Header media. */
-                public media?: ("documentMessage"|"imageMessage"|"jpegThumbnail"|"videoMessage"|"locationMessage");
-=======
                 /** Header productMessage. */
                 public productMessage?: (proto.Message.IProductMessage|null);
 
                 /** Header media. */
                 public media?: ("documentMessage"|"imageMessage"|"jpegThumbnail"|"videoMessage"|"locationMessage"|"productMessage");
->>>>>>> 6603b4e (minor update)
 
                 /**
                  * Creates a new Header instance using the specified properties.
@@ -19102,12 +18597,9 @@ export namespace proto {
 
             /** NewsletterAdminInviteMessage inviteExpiration */
             inviteExpiration?: (number|Long|null);
-<<<<<<< HEAD
-=======
 
             /** NewsletterAdminInviteMessage contextInfo */
             contextInfo?: (proto.IContextInfo|null);
->>>>>>> 6603b4e (minor update)
         }
 
         /** Represents a NewsletterAdminInviteMessage. */
@@ -19134,12 +18626,9 @@ export namespace proto {
             /** NewsletterAdminInviteMessage inviteExpiration. */
             public inviteExpiration: (number|Long);
 
-<<<<<<< HEAD
-=======
             /** NewsletterAdminInviteMessage contextInfo. */
             public contextInfo?: (proto.IContextInfo|null);
 
->>>>>>> 6603b4e (minor update)
             /**
              * Creates a new NewsletterAdminInviteMessage instance using the specified properties.
              * @param [properties] Properties to set
@@ -22609,8 +22098,6 @@ export namespace proto {
             }
         }
 
-<<<<<<< HEAD
-=======
         /** Properties of a SecretEncryptedMessage. */
         interface ISecretEncryptedMessage {
 
@@ -22728,7 +22215,6 @@ export namespace proto {
             }
         }
 
->>>>>>> 6603b4e (minor update)
         /** Properties of a SendPaymentMessage. */
         interface ISendPaymentMessage {
 
@@ -24614,8 +24100,6 @@ export namespace proto {
 
         /** MsgOpaqueData encIv */
         encIv?: (Uint8Array|null);
-<<<<<<< HEAD
-=======
 
         /** MsgOpaqueData eventName */
         eventName?: (string|null);
@@ -24634,7 +24118,6 @@ export namespace proto {
 
         /** MsgOpaqueData eventLocation */
         eventLocation?: (proto.MsgOpaqueData.IEventLocation|null);
->>>>>>> 6603b4e (minor update)
     }
 
     /** Represents a MsgOpaqueData. */
@@ -24736,8 +24219,6 @@ export namespace proto {
         /** MsgOpaqueData encIv. */
         public encIv: Uint8Array;
 
-<<<<<<< HEAD
-=======
         /** MsgOpaqueData eventName. */
         public eventName: string;
 
@@ -24756,7 +24237,6 @@ export namespace proto {
         /** MsgOpaqueData eventLocation. */
         public eventLocation?: (proto.MsgOpaqueData.IEventLocation|null);
 
->>>>>>> 6603b4e (minor update)
         /**
          * Creates a new MsgOpaqueData instance using the specified properties.
          * @param [properties] Properties to set
@@ -24830,8 +24310,6 @@ export namespace proto {
 
     namespace MsgOpaqueData {
 
-<<<<<<< HEAD
-=======
         /** Properties of an EventLocation. */
         interface IEventLocation {
 
@@ -24952,7 +24430,6 @@ export namespace proto {
             public toJSON(): { [k: string]: any };
         }
 
->>>>>>> 6603b4e (minor update)
         /** Properties of a PollOption. */
         interface IPollOption {
 
@@ -30239,12 +29716,9 @@ export namespace proto {
 
         /** StickerMetadata lastStickerSentTs */
         lastStickerSentTs?: (number|Long|null);
-<<<<<<< HEAD
-=======
 
         /** StickerMetadata isLottie */
         isLottie?: (boolean|null);
->>>>>>> 6603b4e (minor update)
     }
 
     /** Represents a StickerMetadata. */
@@ -30289,12 +29763,9 @@ export namespace proto {
         /** StickerMetadata lastStickerSentTs. */
         public lastStickerSentTs: (number|Long);
 
-<<<<<<< HEAD
-=======
         /** StickerMetadata isLottie. */
         public isLottie: boolean;
 
->>>>>>> 6603b4e (minor update)
         /**
          * Creates a new StickerMetadata instance using the specified properties.
          * @param [properties] Properties to set
@@ -30605,8 +30076,6 @@ export namespace proto {
 
         /** SyncActionValue customPaymentMethodsAction */
         customPaymentMethodsAction?: (proto.SyncActionValue.ICustomPaymentMethodsAction|null);
-<<<<<<< HEAD
-=======
 
         /** SyncActionValue lockChatAction */
         lockChatAction?: (proto.SyncActionValue.ILockChatAction|null);
@@ -30625,7 +30094,6 @@ export namespace proto {
 
         /** SyncActionValue noteEditAction */
         noteEditAction?: (proto.SyncActionValue.INoteEditAction|null);
->>>>>>> 6603b4e (minor update)
     }
 
     /** Represents a SyncActionValue. */
@@ -30766,8 +30234,6 @@ export namespace proto {
         /** SyncActionValue customPaymentMethodsAction. */
         public customPaymentMethodsAction?: (proto.SyncActionValue.ICustomPaymentMethodsAction|null);
 
-<<<<<<< HEAD
-=======
         /** SyncActionValue lockChatAction. */
         public lockChatAction?: (proto.SyncActionValue.ILockChatAction|null);
 
@@ -30786,7 +30252,6 @@ export namespace proto {
         /** SyncActionValue noteEditAction. */
         public noteEditAction?: (proto.SyncActionValue.INoteEditAction|null);
 
->>>>>>> 6603b4e (minor update)
         /**
          * Creates a new SyncActionValue instance using the specified properties.
          * @param [properties] Properties to set
@@ -32846,8 +32311,6 @@ export namespace proto {
             public toJSON(): { [k: string]: any };
         }
 
-<<<<<<< HEAD
-=======
         /** Properties of a LockChatAction. */
         interface ILockChatAction {
 
@@ -32938,7 +32401,6 @@ export namespace proto {
             public toJSON(): { [k: string]: any };
         }
 
->>>>>>> 6603b4e (minor update)
         /** Properties of a MarkChatAsReadAction. */
         interface IMarkChatAsReadAction {
 
@@ -33361,8 +32823,6 @@ export namespace proto {
             public toJSON(): { [k: string]: any };
         }
 
-<<<<<<< HEAD
-=======
         /** Properties of a NoteEditAction. */
         interface INoteEditAction {
 
@@ -33486,7 +32946,6 @@ export namespace proto {
             }
         }
 
->>>>>>> 6603b4e (minor update)
         /** Properties of a NuxAction. */
         interface INuxAction {
 
@@ -34027,8 +33486,6 @@ export namespace proto {
             public toJSON(): { [k: string]: any };
         }
 
-<<<<<<< HEAD
-=======
         /** Properties of a PrivacySettingDisableLinkPreviewsAction. */
         interface IPrivacySettingDisableLinkPreviewsAction {
 
@@ -34119,7 +33576,6 @@ export namespace proto {
             public toJSON(): { [k: string]: any };
         }
 
->>>>>>> 6603b4e (minor update)
         /** Properties of a PrivacySettingRelayAllCalls. */
         interface IPrivacySettingRelayAllCalls {
 
@@ -34912,12 +34368,9 @@ export namespace proto {
 
             /** StickerAction deviceIdHint */
             deviceIdHint?: (number|null);
-<<<<<<< HEAD
-=======
 
             /** StickerAction isLottie */
             isLottie?: (boolean|null);
->>>>>>> 6603b4e (minor update)
         }
 
         /** Represents a StickerAction. */
@@ -34959,12 +34412,9 @@ export namespace proto {
             /** StickerAction deviceIdHint. */
             public deviceIdHint: number;
 
-<<<<<<< HEAD
-=======
             /** StickerAction isLottie. */
             public isLottie: boolean;
 
->>>>>>> 6603b4e (minor update)
             /**
              * Creates a new StickerAction instance using the specified properties.
              * @param [properties] Properties to set
@@ -35605,8 +35055,6 @@ export namespace proto {
              */
             public toJSON(): { [k: string]: any };
         }
-<<<<<<< HEAD
-=======
 
         /** Properties of a WamoUserIdentifierAction. */
         interface IWamoUserIdentifierAction {
@@ -35697,7 +35145,6 @@ export namespace proto {
              */
             public toJSON(): { [k: string]: any };
         }
->>>>>>> 6603b4e (minor update)
     }
 
     /** Properties of a SyncdIndex. */
@@ -36915,8 +36362,6 @@ export namespace proto {
         }
     }
 
-<<<<<<< HEAD
-=======
     /** Properties of a UserPassword. */
     interface IUserPassword {
 
@@ -37238,7 +36683,6 @@ export namespace proto {
         }
     }
 
->>>>>>> 6603b4e (minor update)
     /** Properties of a UserReceipt. */
     interface IUserReceipt {
 
@@ -38197,12 +37641,9 @@ export namespace proto {
 
         /** WebMessageInfo newsletterServerId */
         newsletterServerId?: (number|Long|null);
-<<<<<<< HEAD
-=======
 
         /** WebMessageInfo eventAdditionalMetadata */
         eventAdditionalMetadata?: (proto.IEventAdditionalMetadata|null);
->>>>>>> 6603b4e (minor update)
     }
 
     /** Represents a WebMessageInfo. */
@@ -38370,12 +37811,9 @@ export namespace proto {
         /** WebMessageInfo newsletterServerId. */
         public newsletterServerId: (number|Long);
 
-<<<<<<< HEAD
-=======
         /** WebMessageInfo eventAdditionalMetadata. */
         public eventAdditionalMetadata?: (proto.IEventAdditionalMetadata|null);
 
->>>>>>> 6603b4e (minor update)
         /**
          * Creates a new WebMessageInfo instance using the specified properties.
          * @param [properties] Properties to set
@@ -38669,15 +38107,11 @@ export namespace proto {
             BIZ_BOT_3P_MESSAGING_ENABLED = 197,
             REMINDER_SETUP_MESSAGE = 198,
             REMINDER_SENT_MESSAGE = 199,
-<<<<<<< HEAD
-            REMINDER_CANCEL_MESSAGE = 200
-=======
             REMINDER_CANCEL_MESSAGE = 200,
             BIZ_COEX_PRIVACY_INIT = 201,
             BIZ_COEX_PRIVACY_TRANSITION = 202,
             GROUP_DEACTIVATED = 203,
             COMMUNITY_DEACTIVATE_SIBLING_GROUP = 204
->>>>>>> 6603b4e (minor update)
         }
     }
 
