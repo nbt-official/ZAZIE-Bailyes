@@ -1,4 +1,7 @@
-# Baileys - Typescript/Javascript WhatsApp Web API
+# Baileys - Typescript/Javascript WhatsApp Web API 
+
+### Warning
+This is an old version if there are bugs and such please forgive me because this is baileys just to support old button messages.
 
 ### Important Note
 
@@ -13,13 +16,13 @@ Baileys does not require Selenium or any other browser to be interface with What
 Not running Selenium or Chromimum saves you like **half a gig** of ram :/ 
 Baileys supports interacting with the multi-device & web versions of WhatsApp.
 Thank you to [@pokearaujo](https://github.com/pokearaujo/multidevice) for writing his observations on the workings of WhatsApp Multi-Device. Also, thank you to [@Sigalor](https://github.com/sigalor/whatsapp-web-reveng) for writing his observations on the workings of WhatsApp Web and thanks to [@Rhymen](https://github.com/Rhymen/go-whatsapp/) for the __go__ implementation.
- 
+
 ## Please Read
 
 The original repository had to be removed by the original author - we now continue development in this repository here.
 This is the only official repository and is maintained by the community.
  **Join the Discord [here](https://discord.gg/WeJM5FP9GG)**
- 
+
 ## Example
 
 Do check out & run [example.ts](Example/example.ts) to see an example usage of the library.
@@ -99,21 +102,21 @@ type SocketConfig = {
     /** the WS url to connect to WA */
     waWebSocketUrl: string | URL
     /** Fails the connection if the socket times out in this interval */
-	connectTimeoutMs: number
+        connectTimeoutMs: number
     /** Default timeout for queries, undefined for no timeout */
     defaultQueryTimeoutMs: number | undefined
     /** ping-pong interval for WS connection */
     keepAliveIntervalMs: number
     /** proxy agent */
-	agent?: Agent
+        agent?: Agent
     /** pino logger */
-	logger: Logger
+        logger: Logger
     /** version to connect with */
     version: WAVersion
     /** override browser config */
-	browser: WABrowserDescription
-	/** agent used for fetch requests -- uploading/downloading media */
-	fetchAgent?: Agent
+        browser: WABrowserDescription
+        /** agent used for fetch requests -- uploading/downloading media */
+        fetchAgent?: Agent
     /** should the QR be printed in the terminal */
     printQRInTerminal: boolean
     /** should events be emitted for actions done by this socket connection */
@@ -203,19 +206,19 @@ conn.ev.on ('creds.update', saveCreds)
 Baileys now fires the `connection.update` event to let you know something has updated in the connection. This data has the following structure:
 ``` ts
 type ConnectionState = {
-	/** connection is now open, connecting or closed */
-	connection: WAConnectionState
-	/** the error that caused the connection to close */
-	lastDisconnect?: {
-		error: Error
-		date: Date
-	}
-	/** is this a new login */
-	isNewLogin?: boolean
-	/** the current QR code */
-	qr?: string
-	/** has the device received all pending notifications while it was offline */
-	receivedPendingNotifications?: boolean 
+        /** connection is now open, connecting or closed */
+        connection: WAConnectionState
+        /** the error that caused the connection to close */
+        lastDisconnect?: {
+                error: Error
+                date: Date
+        }
+        /** is this a new login */
+        isNewLogin?: boolean
+        /** the current QR code */
+        qr?: string
+        /** has the device received all pending notifications while it was offline */
+        receivedPendingNotifications?: boolean 
 }
 ```
 
@@ -232,7 +235,7 @@ The events are typed as mentioned here:
 
 export type BaileysEventMap = {
     /** connection state has been updated -- WS closed, opened, connecting etc. */
-	'connection.update': Partial<ConnectionState>
+        'connection.update': Partial<ConnectionState>
     /** credentials updated -- some metadata, keys or something */
     'creds.update': Partial<AuthenticationCreds>
     /** history sync, everything is reverse chronologically sorted */
@@ -413,7 +416,7 @@ await sock.sendMessage(
         video: "./Media/ma_gif.mp4", 
         caption: "hello!",
         gifPlayback: true,
-	ptv: false // if set to true, will send as a `video note`
+        ptv: false // if set to true, will send as a `video note`
     }
 )
 
@@ -429,8 +432,8 @@ await sock.sendMessage(
 
 - `id` is the WhatsApp ID of the person or group you're sending the message to. 
     - It must be in the format ```[country code][phone number]@s.whatsapp.net```
-	    - Example for people: ```+19999999999@s.whatsapp.net```. 
-	    - For groups, it must be in the format ``` 123456789-123345@g.us ```. 
+            - Example for people: ```+19999999999@s.whatsapp.net```. 
+            - For groups, it must be in the format ``` 123456789-123345@g.us ```. 
     - For broadcast lists, it's `[timestamp of creation]@broadcast`.
     - For stories, the ID is `status@broadcast`.
 - For media messages, the thumbnail can be generated automatically for images & stickers provided you add `jimp` or `sharp` as a dependency in your project using `yarn add jimp` or `yarn add sharp`. Thumbnails for videos can also be generated automatically, though, you need to have `ffmpeg` installed on your system.
@@ -610,13 +613,13 @@ WA uses an encrypted form of communication to send chat/app updates. This has be
   },
   '123456@s.whatsapp.net')
   ```
-  
+
 - Star/unstar a message
   ``` ts
   await sock.chatModify({
   star: {
-  	messages: [{ id: 'messageID', fromMe: true // or `false` }],
-      	star: true // - true: Star Message; false: Unstar Message
+          messages: [{ id: 'messageID', fromMe: true // or `false` }],
+              star: true // - true: Star Message; false: Unstar Message
   }},'123456@s.whatsapp.net');
   ```
 
@@ -870,7 +873,7 @@ Some examples:
 1. Functionality to track the battery percentage of your phone.
     You enable logging and you'll see a message about your battery pop up in the console: 
     ```{"level":10,"fromMe":false,"frame":{"tag":"ib","attrs":{"from":"@s.whatsapp.net"},"content":[{"tag":"edge_routing","attrs":{},"content":[{"tag":"routing_info","attrs":{},"content":{"type":"Buffer","data":[8,2,8,5]}}]}]},"msg":"communication"} ``` 
-    
+
    The "frame" is what the message received is, it has three components:
    - `tag` -- what this frame is about (eg. message will have "message")
    - `attrs` -- a string key-value pair with some metadata (contains ID of the message usually)
@@ -886,4 +889,4 @@ Some examples:
     // for any message with tag 'edge_routing', id attribute = abcd & first content node routing_info
     sock.ws.on(`CB:edge_routing,id:abcd,routing_info`, (node: BinaryNode) => { })
     ```
- Also, this repo is now licenced under GPL 3 since it uses [libsignal-node](https://git.questbook.io/backend/service-coderunner/-/merge_requests/1)
+Also, this repo is now licenced under GPL 3 since it uses [libsignal-node](https://git.questbook.io/backend/service-coderunner/-/merge_requests/1)
