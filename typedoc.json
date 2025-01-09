@@ -1,5 +1,5 @@
 {
-    "entryPoints": ["./lib/index.d.ts"],
+    "entryPoints": ["./lib/index.ts"],
     "excludePrivate": true,
     "excludeProtected": true,
     "excludeExternals": true,

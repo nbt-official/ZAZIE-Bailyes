@@ -1,5 +1,5 @@
 {
-  "name": "@rulzz2nd/baileys-emde",
+  "name": "@whiskeysockets/baileys",
   "version": "6.8.0",
   "description": "WhatsApp API",
   "keywords": [
@@ -17,7 +17,7 @@
     "url": "git@github.com:WhiskeySockets/Baileys.git"
   },
   "license": "MIT",
-  "author": "Rlzyy",
+  "author": "Whiskeysockets",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
