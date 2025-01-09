@@ -1,11 +1,20 @@
-# Baileys - Typescript/Javascript WhatsApp Web API
+# @dannteam/baileys - Typescript/Javascript WhatsApp Web API
+# 2025 © DannOfficial - DannTeam Community
+
+### Community
+
+Join the Channel [here](https://whatsapp.com/channel/0029VaNWOo25a23wPyW7mM0n)
+
+Join the Group [here](https://whatsapp.com/channel/0029VaNWOo25a23wPyW7mM0n)
+
+Join the Store [here](https://chat.whatsapp.com/KTuyPQKzxo90bc2euHIsfu)
 
 ### Important Note
 
 This library was originally a project for **CS-2362 at Ashoka University** and is in no way affiliated with or endorsed by WhatsApp. Use at your own discretion. Do not spam people with this. We discourage any stalkerware, bulk or automated messaging usage. 
 
 #### Liability and License Notice
-Baileys and its maintainers cannot be held liable for misuse of this application, as stated in the [MIT license](https://github.com/WhiskeySockets/Baileys/blob/master/LICENSE).
+Baileys and its maintainers cannot be held liable for misuse of this application, as stated in the [MIT license](https://github.com/DannOfficial/Baileys/blob/master/LICENSE).
 The maintainers of Baileys do not in any way condone the use of this application in practices that violate the Terms of Service of WhatsApp. The maintainers of this application call upon the personal responsibility of its users to use this application in a fair way, as it is intended to be used.
 ##
 
@@ -18,7 +27,8 @@ Thank you to [@pokearaujo](https://github.com/pokearaujo/multidevice) for writin
 
 The original repository had to be removed by the original author - we now continue development in this repository here.
 This is the only official repository and is maintained by the community.
- **Join the Discord [here](https://discord.gg/WeJM5FP9GG)**
+ **Join the Channel [here](https://whatsapp.com/channel/0029VaNWOo25a23wPyW7mM0n)**
+ 
  
 ## Example
 
@@ -33,17 +43,17 @@ To run the example script, download or clone the repo and then type the followin
 
 Use the stable version:
 ```
-yarn add @whiskeysockets/baileys
+yarn add @dannteam/baileys
 ```
 
 Use the edge version (no guarantee of stability, but latest fixes + features)
 ```
-yarn add github:WhiskeySockets/Baileys
+yarn add github:DannOfficial/Baileys
 ```
 
 Then import your code using:
 ``` ts 
-import makeWASocket from '@whiskeysockets/baileys'
+import makeWASocket from '@dannteam/baileys'
 ```
 
 ## Unit Tests
@@ -55,7 +65,7 @@ TODO
 WhatsApp provides a multi-device API that allows Baileys to be authenticated as a second WhatsApp client by scanning a QR code with WhatsApp on your phone.
 
 ``` ts
-import makeWASocket, { DisconnectReason } from '@whiskeysockets/baileys'
+import makeWASocket, { DisconnectReason } from '@dannteam/baileys'
 import { Boom } from '@hapi/boom'
 
 async function connectToWhatsApp () {
@@ -88,6 +98,16 @@ connectToWhatsApp()
 ``` 
 
 If the connection is successful, you will see a QR code printed on your terminal screen, scan it with WhatsApp on your phone and you'll be logged in!
+
+**Note:** install `qrcode-terminal` using `yarn add qrcode-terminal` to auto-print the QR to the terminal.
+
+**Note:** the code to support the legacy version of WA Web (pre multi-device) has been removed in v5. Only the standard multi-device connection is now supported. This is done as WA seems to have completely dropped support for the legacy version.
+
+## Connecting native mobile api
+
+Baileys also supports the native mobile API, which allows users to authenticate as a standalone WhatsApp client using their phone number.
+
+Run the [example](Example/example.ts) file with ``--mobile`` cli flag to use the native mobile API.
 
 ## Configuring the Connection
 
@@ -146,7 +166,7 @@ type SocketConfig = {
     linkPreviewImageThumbnailWidth: number
     /** Should Baileys ask the phone for full history, will be received async */
     syncFullHistory: boolean
-    /** Should baileys fire init queries automatically, default true */
+    /** Should Baileys fire init queries automatically, default true */
     fireInitQueries: boolean
     /**
      * generate a high quality link preview,
@@ -183,12 +203,12 @@ You obviously don't want to keep scanning the QR code every time you want to con
 
 So, you can load the credentials to log back in:
 ``` ts
-import makeWASocket, { BufferJSON, useMultiFileAuthState } from '@whiskeysockets/baileys'
+import makeWASocket, { BufferJSON, useMultiFileAuthState } from '@dannteam/baileys'
 import * as fs from 'fs'
 
 // utility function to help save the auth state in a single folder
 // this function serves as a good guide to help write auth & key states for SQL/no-SQL databases, which I would recommend in any production grade system
-const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileys')
+const { state, saveCreds } = await useMultiFileAuthState('auth_info_Baileys')
 // will use the given state to connect
 // so if valid credentials are available -- it'll connect without QR
 const conn = makeWASocket({ auth: state }) 
@@ -298,15 +318,15 @@ Baileys does not come with a defacto storage for chats, contacts, or messages. H
 It can be used as follows:
 
 ``` ts
-import makeWASocket, { makeInMemoryStore } from '@whiskeysockets/baileys'
+import makeWASocket, { makeInMemoryStore } from '@dannteam/baileys'
 // the store maintains the data of the WA connection in memory
 // can be written out to a file & read from it
 const store = makeInMemoryStore({ })
 // can be read from a file
-store.readFromFile('./baileys_store.json')
+store.readFromFile('./Baileys_store.json')
 // saves the state to a file every 10s
 setInterval(() => {
-    store.writeToFile('./baileys_store.json')
+    store.writeToFile('./Baileys_store.json')
 }, 10_000)
 
 const sock = makeWASocket({ })
@@ -314,13 +334,13 @@ const sock = makeWASocket({ })
 // the store can listen from a new socket once the current socket outlives its lifetime
 store.bind(sock.ev)
 
-sock.ev.on('chats.upsert', () => {
+sock.ev.on('chats.set', () => {
     // can use "store.chats" however you want, even after the socket dies out
     // "chats" => a KeyedDB instance
     console.log('got chats', store.chats.all())
 })
 
-sock.ev.on('contacts.upsert', () => {
+sock.ev.on('contacts.set', () => {
     console.log('got contacts', Object.values(store.contacts))
 })
 
@@ -337,7 +357,7 @@ The store also provides some simple functions such as `loadMessages` that utiliz
 ### Non-Media Messages
 
 ``` ts
-import { MessageType, MessageOptions, Mimetype } from '@whiskeysockets/baileys'
+import { MessageType, MessageOptions, Mimetype } from '@dannteam/baileys'
 
 const id = 'abcd@s.whatsapp.net' // the WhatsApp ID 
 // send a simple text!
@@ -378,6 +398,24 @@ const reactionMessage = {
 const sendMsg = await sock.sendMessage(id, reactionMessage)
 ```
 
+### Sending messages with buttons
+```ts
+   const buttons = [
+                { buttonId: id1, buttonText: { displayText: button1 }, type: 1 },
+                ]
+                const buttonMessage = {
+                    text: "",
+                    footer: "",
+                    mentions: await sock.parseMention("" + ""),
+                    ephemeralExpiration: 86400,
+                    ...options,
+                    buttons: buttons,
+                    headerType: 1
+                }
+                sock.sendMessage(jid, buttonMessage, { quoted, ephemeralExpiration: 86400, contextInfo: { mentionedJid: sock.parseMention("" + ""), forwardingScore: 999999, isForwarded: true }, ...options })
+            }
+```
+
 ### Sending messages with link previews
 
 1. By default, WA MD does not have link generation when sent from the web
@@ -386,7 +424,7 @@ const sendMsg = await sock.sendMessage(id, reactionMessage)
 4. Send a link:
 ``` ts
 // send a link
-const sentMsg  = await sock.sendMessage(id, { text: 'Hi, this was sent using https://github.com/adiwajshing/baileys' })
+const sentMsg  = await sock.sendMessage(id, { text: 'Hi, this was sent using https://github.com/adiwajshing/Baileys' })
 ```
 
 ### Media Messages
@@ -396,7 +434,7 @@ Sending media (video, stickers, images) is easier & more efficient than ever.
 - When specifying a media url, Baileys never loads the entire buffer into memory; it even encrypts the media as a readable stream.
 
 ``` ts
-import { MessageType, MessageOptions, Mimetype } from '@whiskeysockets/baileys'
+import { MessageType, MessageOptions, Mimetype } from '@dannteam/baileys'
 // Sending gifs
 await sock.sendMessage(
     id, 
@@ -412,8 +450,7 @@ await sock.sendMessage(
     { 
         video: "./Media/ma_gif.mp4", 
         caption: "hello!",
-        gifPlayback: true,
-	ptv: false // if set to true, will send as a `video note`
+        gifPlayback: true
     }
 )
 
@@ -446,7 +483,7 @@ await sock.sendMessage(
                                     Do not enter this field if you want to automatically generate a thumb
                                 */
         mimetype: Mimetype.pdf, /* (for media messages) specify the type of media (optional for all media types except documents),
-                                    import {Mimetype} from '@whiskeysockets/baileys'
+                                    import {Mimetype} from '@dannteam/baileys'
                                 */
         fileName: 'somefile.pdf', // (for media messages) file name for the media
         /* will send audio messages as voice notes, if set to true */
@@ -505,7 +542,7 @@ The presence expires after about 10 seconds.
 If you want to save the media you received
 ``` ts
 import { writeFile } from 'fs/promises'
-import { downloadMediaMessage } from '@whiskeysockets/baileys'
+import { downloadMediaMessage } from '@dannteam/baileys'
 
 sock.ev.on('messages.upsert', async ({ messages }) => {
     const m = messages[0]
@@ -521,7 +558,7 @@ sock.ev.on('messages.upsert', async ({ messages }) => {
             { },
             { 
                 logger,
-                // pass this so that baileys can request a reupload of media
+                // pass this so that Baileys can request a reupload of media
                 // that has been deleted
                 reuploadRequest: sock.updateMediaMessage
             }
@@ -704,6 +741,64 @@ await sock.sendMessage(
     ```
 Of course, replace ``` xyz ``` with an actual ID. 
 
+## Newsletter
+- To get info newsletter
+    ``` ts
+    const metadata = await sock.newsletterMetadata("invite", "xxxxx")
+    // or
+    const metadata = await sock.newsletterMetadata("jid", "abcd@newsletter")
+    console.log(metadata)
+    ```
+- To update the description of a newsletter
+    ``` ts
+    await sock.newsletterUpdateDescription("abcd@newsletter", "New Description")
+    ```
+- To update the name of a newsletter
+    ``` ts
+    await sock.newsletterUpdateName("abcd@newsletter", "New Name")
+    ```  
+- To update the profile picture of a newsletter.
+    ``` ts
+    await sock.newsletterUpdatePicture("abcd@newsletter", buffer)
+    ```
+- To remove the profile picture of a newsletter
+    ``` ts
+    await sock.newsletterRemovePicture("abcd@newsletter")
+    ```
+- To unmute notifications for a newsletter.
+    ``` ts
+    await sock.newsletterUnmute("abcd@newsletter")
+    ```
+- To mute notifications for a newsletter.
+    ``` ts
+    await sock.newsletterMute("abcd@newsletter")
+    ```
+- To create a newsletter
+    ``` ts
+    const metadata = await sock.newsletterCreate("Newsletter Name", "Newsletter Description")
+    console.log(metadata)
+    ```
+- To delete a newsletter.
+    ``` ts
+    await sock.newsletterDelete("abcd@newsletter")
+    ```
+- To follow a newsletter
+    ``` ts
+    await sock.newsletterFollow("abcd@newsletter")
+    ```
+- To unfollow a newsletter
+    ``` ts
+    await sock.newsletterUnfollow("abcd@newsletter")
+    ```
+- To send reaction
+    ``` ts
+    // jid, id message & emoticon
+    // way to get the ID is to copy the message url from channel
+    // Example: [ https://whatsapp.com/channel/xxxxx/175 ]
+    // The last number of the URL is the ID
+    const id = "175"
+    await sock.newsletterReactMessage("abcd@newsletter", id, "🥳")
+    ```
 ## Groups
 - To create a group
     ``` ts
@@ -825,7 +920,7 @@ Of course, replace ``` xyz ``` with an actual ID.
     ```
 - To update the Groups Add privacy
     ``` ts
-    const value = 'all' // 'contacts' | 'contact_blacklist'
+    const value = 'all' // 'contacts' | 'contact_blacklist' | 'none'
     await sock.updateGroupsAddPrivacy(value)
     ```
 - To update the Default Disappearing Mode
@@ -833,9 +928,9 @@ Of course, replace ``` xyz ``` with an actual ID.
     const duration = 86400 // 604800 | 7776000 | 0 
     await sock.updateDefaultDisappearingMode(duration)
     ```
-## Broadcast Lists & Stories
+## Broadcast Lists, Stories & Reaction
 
-Messages can be sent to broadcasts & stories. 
+Messages can be sent to broadcasts, stories & reaction.
 you need to add the following message options in sendMessage, like this:
 ```ts
 sock.sendMessage(jid, {image: {url: url}, caption: caption}, {backgroundColor : backgroundColor, font : font, statusJidList: statusJidList, broadcast : true})
@@ -853,6 +948,22 @@ sock.sendMessage(jid, {image: {url: url}, caption: caption}, {backgroundColor : 
     const bList = await sock.getBroadcastListInfo("1234@broadcast")
     console.log (`list name: ${bList.name}, recps: ${bList.recipients}`)
     ```
+
+- You can send reaction to broadcast lists the same way you send messages to groups & individual chats.
+- Broadcast IDs are in the format `12345678@broadcast`
+- Jid are in the format `status@broadcast`
+- To query a reaction for broadcast recipients & name:
+
+```
+    sock.sendMessage(jid, {
+          react: {
+            text: "💝",
+            key: key
+          }
+       }, {
+          statusJidList: []
+    })
+```
 
 ## Writing Custom Functionality
 Baileys is written with custom functionality in mind. Instead of forking the project & re-writing the internals, you can simply write your own extensions.
