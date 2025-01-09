@@ -64,15 +64,6 @@ type EncryptedStreamOptions = {
     logger?: Logger;
     opts?: AxiosRequestConfig;
 };
-export declare const prepareStream: (media: WAMediaUpload, mediaType: MediaType, { logger, saveOriginalFileIfRequired, opts }?: EncryptedStreamOptions) => Promise<{
-    mediaKey: undefined;
-    encWriteStream: Buffer;
-    fileLength: number;
-    fileSha256: Buffer;
-    fileEncSha256: undefined;
-    bodyPath: string | undefined;
-    didSaveToTmpPath: boolean;
-}>;
 export declare const encryptedStream: (media: WAMediaUpload, mediaType: MediaType, { logger, saveOriginalFileIfRequired, opts }?: EncryptedStreamOptions) => Promise<{
     mediaKey: Buffer;
     encWriteStream: Readable;
@@ -86,7 +77,7 @@ export declare const encryptedStream: (media: WAMediaUpload, mediaType: MediaTyp
 export type MediaDownloadOptions = {
     startByte?: number;
     endByte?: number;
-    options?: AxiosRequestConfig<any>;
+    options?: AxiosRequestConfig<{}>;
 };
 export declare const getUrlFromDirectPath: (directPath: string) => string;
 export declare const downloadContentFromMessage: ({ mediaKey, directPath, url }: DownloadableMessage, type: MediaType, opts?: MediaDownloadOptions) => Promise<Transform>;
@@ -102,7 +93,7 @@ export declare const getWAUploadToServer: ({ customUploadHosts, fetchAgent, logg
  */
 export declare const encryptMediaRetryRequest: (key: proto.IMessageKey, mediaKey: Buffer | Uint8Array, meId: string) => BinaryNode;
 export declare const decodeMediaRetryNode: (node: BinaryNode) => {
-    key: import("../Types").WAMessageKey;
+    key: proto.IMessageKey;
     media?: {
         ciphertext: Uint8Array;
         iv: Uint8Array;

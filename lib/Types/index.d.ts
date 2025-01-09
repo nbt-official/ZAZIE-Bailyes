@@ -1,6 +1,5 @@
 export * from './Auth';
 export * from './GroupMetadata';
-export * from './Newsletter';
 export * from './Chat';
 export * from './Contact';
 export * from './State';
@@ -21,6 +20,8 @@ export type BrowsersMap = {
     baileys(browser: string): [string, string, string];
     windows(browser: string): [string, string, string];
     appropriate(browser: string): [string, string, string];
+    iOS(browser: string): [string, string, string];
+    linux(browser: string): [string, string, string];
 };
 export declare enum DisconnectReason {
     connectionClosed = 428,
