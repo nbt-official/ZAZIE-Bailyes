@@ -8,7 +8,6 @@ import type { Readable } from 'stream';
 import type { URL } from 'url';
 import { proto } from '../../WAProto';
 import { MEDIA_HKDF_KEY_MAPPING } from '../Defaults';
-import { BinaryNode } from '../WABinary';
 import type { GroupMetadata } from './GroupMetadata';
 import { CacheStore } from './Socket';
 export { proto as WAProto };
@@ -16,20 +15,20 @@ export type WAMessage = proto.IWebMessageInfo;
 export type WAMessageContent = proto.IMessage;
 export type WAContactMessage = proto.Message.IContactMessage;
 export type WAContactsArrayMessage = proto.Message.IContactsArrayMessage;
-export type WAMessageKey = proto.IMessageKey;
+export type WAMessageKey = proto.IMessageKey & {
+    server_id?: string;
+};
 export type WATextMessage = proto.Message.IExtendedTextMessage;
 export type WAContextInfo = proto.IContextInfo;
 export type WALocationMessage = proto.Message.ILocationMessage;
 export type WAGenericMediaMessage = proto.Message.IVideoMessage | proto.Message.IImageMessage | proto.Message.IAudioMessage | proto.Message.IDocumentMessage | proto.Message.IStickerMessage;
 export import WAMessageStubType = proto.WebMessageInfo.StubType;
 export import WAMessageStatus = proto.WebMessageInfo.Status;
-export type WAMediaPayloadURL = {
+export type WAMediaUpload = Buffer | {
     url: URL | string;
-};
-export type WAMediaPayloadStream = {
+} | {
     stream: Readable;
 };
-export type WAMediaUpload = Buffer | WAMediaPayloadStream | WAMediaPayloadURL;
 /** Set of message types that are supported by the library */
 export type MessageType = keyof proto.Message;
 export type DownloadableMessage = {
@@ -67,8 +66,36 @@ type Contextable = {
 type ViewOnce = {
     viewOnce?: boolean;
 };
+type viewOnceV2 = {
+     viewOnceV2?: boolean;
+};
+type viewOnceV2Extension = {
+     viewOnceV2Extension?: boolean;
+};
+type Ephemeral = {
+      ephemeral?: boolean;
+};
+type Buttonable = {
+    /** add buttons to the message  */
+    buttons?: proto.Message.ButtonsMessage.IButton[];
+};
+type Templatable = {
+    /** add buttons to the message (conflicts with normal buttons)*/
+    templateButtons?: proto.IHydratedTemplateButton[];
+    footer?: string;
+};
 type Editable = {
     edit?: WAMessageKey;
+};
+type Listable = {
+    /** Sections of the List */
+    sections?: proto.Message.ListMessage.ISection[];
+    /** Title of a List Message only */
+    title?: string;
+    /** Text of the button on the list (required) */
+    buttonText?: string;
+    /** ListType of a List Message only */
+    listType?: proto.Message.ListMessage.ListType.SINGLE_SELECT;
 };
 type WithDimensions = {
     width?: number;
@@ -80,7 +107,6 @@ export type PollMessageOptions = {
     values: string[];
     /** 32 byte message secret to encrypt poll selections */
     messageSecret?: Uint8Array;
-    toAnnouncementGroup?: boolean;
 };
 type SharePhoneNumber = {
     sharePhoneNumber: boolean;
@@ -93,14 +119,14 @@ export type AnyMediaMessageContent = (({
     image: WAMediaUpload;
     caption?: string;
     jpegThumbnail?: string;
-} & Mentionable & Contextable & WithDimensions) | ({
+} & Mentionable & Contextable & Buttonable & Templatable & WithDimensions) | ({
     video: WAMediaUpload;
     caption?: string;
     gifPlayback?: boolean;
     jpegThumbnail?: string;
     /** if set to true, will send as a `video note` */
     ptv?: boolean;
-} & Mentionable & Contextable & WithDimensions) | {
+} & Mentionable & Contextable & Buttonable & Templatable & WithDimensions) | {
     audio: WAMediaUpload;
     /** if set to true, will send as a `voice note` */
     ptt?: boolean;
@@ -114,7 +140,7 @@ export type AnyMediaMessageContent = (({
     mimetype: string;
     fileName?: string;
     caption?: string;
-} & Contextable)) & {
+} & Contextable & Buttonable & Templatable)) & {
     mimetype?: string;
 } & Editable;
 export type ButtonReplyInfo = {
@@ -123,11 +149,36 @@ export type ButtonReplyInfo = {
     index: number;
 };
 export type GroupInviteInfo = {
-    inviteCode: string;
-    inviteExpiration: number;
-    text: string;
+    code: string;
+    expiration: number;
+    caption: string;
     jid: string;
-    subject: string;
+    name: string;
+    jpegThumbnail: string;
+}
+export type PinInChatInfo = {
+    key: WAMessageKey;
+    type?: nunber;
+    time?: number;
+};
+export type CallCreationInfo = {
+    time?: number;
+    type?: number;
+    name: string;
+};
+export type EventsInfo = {
+    cancel?: boolean;
+    name: string;
+    description: string;
+    joinLink?: string;
+    startTime?: number;
+};
+export type AdminInviteInfo = {
+    jid: string;
+    name: string;
+    caption: string;
+    expiration: number;
+    jpegThumbnail: string;
 };
 export type WASendableProduct = Omit<proto.Message.ProductMessage.IProductSnapshot, 'productImage'> & {
     productImage: WAMediaUpload;
@@ -135,9 +186,9 @@ export type WASendableProduct = Omit<proto.Message.ProductMessage.IProductSnapsh
 export type AnyRegularMessageContent = (({
     text: string;
     linkPreview?: WAUrlInfo | null;
-} & Mentionable & Contextable & Editable) | AnyMediaMessageContent | ({
+} & Mentionable & Contextable & Buttonable & Templatable & Listable & Editable) | AnyMediaMessageContent | ({
     poll: PollMessageOptions;
-} & Mentionable & Contextable & Editable) | {
+} & Mentionable & Contextable & Buttonable & Templatable & Editable) | {
     contacts: {
         displayName?: string;
         contacts: proto.Message.IContactMessage[];
@@ -150,16 +201,17 @@ export type AnyRegularMessageContent = (({
     buttonReply: ButtonReplyInfo;
     type: 'template' | 'plain';
 } | {
-    groupInvite: GroupInviteInfo;
+     groupInvite: GroupInviteInfo;
+} | {
+     pin: PinInChatInfo;
+} | {
+     call: CallCreationInfo;
+} | {
+     event: EventsInfo;
+} | {
+     inviteAdmin: AdminInviteInfo;
 } | {
     listReply: Omit<proto.Message.IListResponseMessage, 'contextInfo'>;
-} | {
-    pin: WAMessageKey;
-    type: proto.PinInChat.Type;
-    /**
-     * 24 hours, 7 days, 30 days
-     */
-    time?: 86400 | 604800 | 2592000;
 } | {
     product: WASendableProduct;
     businessOwnerJid?: string;
@@ -192,11 +244,11 @@ export type MessageRelayOptions = MinimalRelayOptions & {
     additionalAttributes?: {
         [_: string]: string;
     };
-    additionalNodes?: BinaryNode[];
     /** should we use the devices cache, or fetch afresh from the server; default assumed to be "true" */
     useUserDevicesCache?: boolean;
     /** jid list of participants for status@broadcast */
     statusJidList?: string[];
+    newsletter?: boolean;
 };
 export type MiscMessageGenerationOptions = MinimalRelayOptions & {
     /** optional, if you want to manually set the timestamp of the message */
@@ -215,17 +267,21 @@ export type MiscMessageGenerationOptions = MinimalRelayOptions & {
     font?: number;
     /** if it is broadcast */
     broadcast?: boolean;
+    newsletter?: boolean;
 };
 export type MessageGenerationOptionsFromContent = MiscMessageGenerationOptions & {
     userJid: string;
 };
-export type WAMediaUploadFunction = (readStream: Readable, opts: {
+export type WAMediaUploadFunctionOpts = {
     fileEncSha256B64: string;
     mediaType: MediaType;
+    newsletter?: boolean;
     timeoutMs?: number;
-}) => Promise<{
+};
+export type WAMediaUploadFunction = (readStream: Readable | Buffer, opts: WAMediaUploadFunctionOpts) => Promise<{
     mediaUrl: string;
     directPath: string;
+    handle?: string;
 }>;
 export type MediaGenerationOptions = {
     logger?: Logger;
@@ -237,10 +293,11 @@ export type MediaGenerationOptions = {
     options?: AxiosRequestConfig;
     backgroundColor?: string;
     font?: number;
+    /** The message is for newsletter? */
+    newsletter?: boolean;
 };
 export type MessageContentGenerationOptions = MediaGenerationOptions & {
     getUrlInfo?: (text: string) => Promise<WAUrlInfo | undefined>;
-    getProfilePicUrl?: (jid: string, type: 'image' | 'preview') => Promise<string | undefined>;
 };
 export type MessageGenerationOptions = MessageContentGenerationOptions & MessageGenerationOptionsFromContent;
 /**
