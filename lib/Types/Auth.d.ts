@@ -1,4 +1,5 @@
 /// <reference types="node" />
+/// <reference types="node" />
 import type { proto } from '../../WAProto';
 import { RegistrationOptions } from '../Socket/registration';
 import type { Contact } from './Contact';

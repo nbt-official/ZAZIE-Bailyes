@@ -1,11 +1,11 @@
 /// <reference types="node" />
 /// <reference types="node" />
 /// <reference types="node" />
+/// <reference types="node" />
 import { AxiosRequestConfig } from 'axios';
 import type { Logger } from 'pino';
 import type { Readable } from 'stream';
 import type { URL } from 'url';
-import { BinaryNode } from '../WABinary';
 import { proto } from '../../WAProto';
 import { MEDIA_HKDF_KEY_MAPPING } from '../Defaults';
 import type { GroupMetadata } from './GroupMetadata';
@@ -15,7 +15,9 @@ export type WAMessage = proto.IWebMessageInfo;
 export type WAMessageContent = proto.IMessage;
 export type WAContactMessage = proto.Message.IContactMessage;
 export type WAContactsArrayMessage = proto.Message.IContactsArrayMessage;
-export type WAMessageKey = proto.IMessageKey;
+export type WAMessageKey = proto.IMessageKey & {
+    server_id?: string;
+};
 export type WATextMessage = proto.Message.IExtendedTextMessage;
 export type WAContextInfo = proto.IContextInfo;
 export type WALocationMessage = proto.Message.ILocationMessage;
@@ -64,6 +66,15 @@ type Contextable = {
 type ViewOnce = {
     viewOnce?: boolean;
 };
+type viewOnceV2 = {
+     viewOnceV2?: boolean;
+};
+type viewOnceV2Extension = {
+     viewOnceV2Extension?: boolean;
+};
+type Ephemeral = {
+      ephemeral?: boolean;
+};
 type Buttonable = {
     /** add buttons to the message  */
     buttons?: proto.Message.ButtonsMessage.IButton[];
@@ -81,8 +92,10 @@ type Listable = {
     sections?: proto.Message.ListMessage.ISection[];
     /** Title of a List Message only */
     title?: string;
-    /** Text of the bnutton on the list (required) */
+    /** Text of the button on the list (required) */
     buttonText?: string;
+    /** ListType of a List Message only */
+    listType?: proto.Message.ListMessage.ListType.SINGLE_SELECT;
 };
 type WithDimensions = {
     width?: number;
@@ -135,6 +148,38 @@ export type ButtonReplyInfo = {
     id: string;
     index: number;
 };
+export type GroupInviteInfo = {
+    code: string;
+    expiration: number;
+    caption: string;
+    jid: string;
+    name: string;
+    jpegThumbnail: string;
+}
+export type PinInChatInfo = {
+    key: WAMessageKey;
+    type?: nunber;
+    time?: number;
+};
+export type CallCreationInfo = {
+    time?: number;
+    type?: number;
+    name: string;
+};
+export type EventsInfo = {
+    cancel?: boolean;
+    name: string;
+    description: string;
+    joinLink?: string;
+    startTime?: number;
+};
+export type AdminInviteInfo = {
+    jid: string;
+    name: string;
+    caption: string;
+    expiration: number;
+    jpegThumbnail: string;
+};
 export type WASendableProduct = Omit<proto.Message.ProductMessage.IProductSnapshot, 'productImage'> & {
     productImage: WAMediaUpload;
 };
@@ -156,6 +201,16 @@ export type AnyRegularMessageContent = (({
     buttonReply: ButtonReplyInfo;
     type: 'template' | 'plain';
 } | {
+     groupInvite: GroupInviteInfo;
+} | {
+     pin: PinInChatInfo;
+} | {
+     call: CallCreationInfo;
+} | {
+     event: EventsInfo;
+} | {
+     inviteAdmin: AdminInviteInfo;
+} | {
     listReply: Omit<proto.Message.IListResponseMessage, 'contextInfo'>;
 } | {
     product: WASendableProduct;
@@ -176,8 +231,8 @@ export type GroupMetadataParticipants = Pick<GroupMetadata, 'participants'>;
 type MinimalRelayOptions = {
     /** override the message ID with a custom provided string */
     messageId?: string;
-    /** cached group metadata, use to prevent redundant requests to WA & speed up msg sending */
-    cachedGroupMetadata?: (jid: string) => Promise<GroupMetadataParticipants | undefined>;
+    /** should we use group metadata cache, or fetch afresh from the server; default assumed to be "true" */
+    useCachedGroupMetadata?: boolean;
 };
 export type MessageRelayOptions = MinimalRelayOptions & {
     /** only send to a specific participant; used when a message decryption fails for a single user */
@@ -189,18 +244,17 @@ export type MessageRelayOptions = MinimalRelayOptions & {
     additionalAttributes?: {
         [_: string]: string;
     };
-    additionalNodes?: BinaryNode[];
     /** should we use the devices cache, or fetch afresh from the server; default assumed to be "true" */
     useUserDevicesCache?: boolean;
     /** jid list of participants for status@broadcast */
     statusJidList?: string[];
+    newsletter?: boolean;
 };
 export type MiscMessageGenerationOptions = MinimalRelayOptions & {
     /** optional, if you want to manually set the timestamp of the message */
     timestamp?: Date;
     /** the message you want to quote */
     quoted?: WAMessage;
-    additionalNodes?: BinaryNode[];
     /** disappearing messages settings */
     ephemeralExpiration?: number | string;
     /** timeout for media upload to WA server */
@@ -213,6 +267,7 @@ export type MiscMessageGenerationOptions = MinimalRelayOptions & {
     font?: number;
     /** if it is broadcast */
     broadcast?: boolean;
+    newsletter?: boolean;
 };
 export type MessageGenerationOptionsFromContent = MiscMessageGenerationOptions & {
     userJid: string;
