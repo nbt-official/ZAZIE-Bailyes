@@ -1,5 +1,4 @@
 /// <reference types="node" />
-/// <reference types="node" />
 import { proto } from '../../WAProto';
 import type { MediaType, SocketConfig } from '../Types';
 export declare const UNAUTHORIZED_CODES: number[];
