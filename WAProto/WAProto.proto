@@ -399,7 +399,6 @@ message BotSessionMetadata {
 }
 
 enum BotSessionSource {
-    NONE = 0;
     NULL_STATE = 1;
     TYPEAHEAD = 2;
     USER_INPUT = 3;
@@ -1356,6 +1355,7 @@ enum MediaVisibility {
     OFF = 1;
     ON = 2;
 }
+
 message Message {
     optional string conversation = 1;
     optional SenderKeyDistributionMessage senderKeyDistributionMessage = 2;
@@ -1423,6 +1423,7 @@ message Message {
     optional EncEventResponseMessage encEventResponseMessage = 76;
     optional CommentMessage commentMessage = 77;
     optional NewsletterAdminInviteMessage newsletterAdminInviteMessage = 78;
+    optional ExtendedTextMessageWithParentKey extendedTextMessageWithParentKey = 79;
     optional PlaceholderMessage placeholderMessage = 80;
     optional SecretEncryptedMessage secretEncryptedMessage = 82;
     optional AlbumMessage albumMessage = 83;
@@ -1759,6 +1760,7 @@ message Message {
     message ExtendedTextMessage {
         optional string text = 1;
         optional string matchedText = 2;
+        optional string canonicalUrl = 4;
         optional string description = 5;
         optional string title = 6;
         optional fixed32 textArgb = 7;
@@ -1811,6 +1813,11 @@ message Message {
     
     message FullHistorySyncOnDemandRequestMetadata {
         optional string requestId = 1;
+    }
+    
+    message ExtendedTextMessageWithParentKey {
+        optional MessageKey key = 1;
+        optional Message.ExtendedTextMessage extendedTextMessage = 2;
     }
     
     message FutureProofMessage {
@@ -2303,6 +2310,7 @@ message Message {
                 optional string title = 2;
                 optional string description = 3;
                 optional bytes thumbData = 4;
+                optional string canonicalUrl = 5;
                 optional string matchText = 6;
                 optional string previewType = 7;
                 optional LinkPreviewHighQualityThumbnail hqThumbnail = 8;
@@ -3134,6 +3142,41 @@ message ProloguePayload {
 message Pushname {
     optional string id = 1;
     optional string pushname = 2;
+}
+
+message QP {
+    enum ClauseType {
+        AND = 1;
+        OR = 2;
+        NOR = 3;
+    }
+    message Filter {
+        required string filterName = 1;
+        repeated QP.FilterParameters parameters = 2;
+        optional QP.FilterResult filterResult = 3;
+        required QP.FilterClientNotSupportedConfig clientNotSupportedConfig = 4;
+    }
+    
+    message FilterClause {
+        required QP.ClauseType clauseType = 1;
+        repeated QP.FilterClause clauses = 2;
+        repeated QP.Filter filters = 3;
+    }
+    
+    enum FilterClientNotSupportedConfig {
+        PASS_BY_DEFAULT = 1;
+        FAIL_BY_DEFAULT = 2;
+    }
+    message FilterParameters {
+        optional string key = 1;
+        optional string value = 2;
+    }
+    
+    enum FilterResult {
+        TRUE = 1;
+        FALSE = 2;
+        UNKNOWN = 3;
+    }
 }
 
 message Reaction {

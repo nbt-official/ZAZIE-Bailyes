@@ -2,7 +2,7 @@
 /// <reference types="node" />
 import { Boom } from '@hapi/boom';
 import { proto } from '../../WAProto';
-import { ChatModification, MessageUpsertType, SocketConfig, WABusinessProfile, WAMediaUpload, WAPatchCreate, WAPresence, WAPrivacyCallValue, WAPrivacyOnlineValue, WAPrivacyValue, WAReadReceiptsValue } from '../Types';
+import { ChatModification, MessageUpsertType, SocketConfig, WABusinessProfile, WAMediaUpload, WAPatchCreate, WAPresence, WAPrivacyCallValue, WAPrivacyGroupAddValue, WAPrivacyOnlineValue, WAPrivacyValue, WAReadReceiptsValue } from '../Types';
 import { BinaryNode } from '../WABinary';
 import { USyncQuery } from '../WAUSync';
 export declare const makeChatsSocket: (config: SocketConfig) => {
@@ -22,8 +22,8 @@ export declare const makeChatsSocket: (config: SocketConfig) => {
         exists: unknown;
     }[] | undefined>;
     fetchBlocklist: () => Promise<string[]>;
-    fetchStatus: (...jids: string[]) => Promise<import("../WAUSync").USyncQueryResultList[] | undefined>;
     fetchDisappearingDuration: (...jids: string[]) => Promise<import("../WAUSync").USyncQueryResultList[] | undefined>;
+    fetchStatus: (...jids: string[]) => Promise<import("../WAUSync").USyncQueryResultList[] | undefined>;
     updateProfilePicture: (jid: string, content: WAMediaUpload) => Promise<void>;
     removeProfilePicture: (jid: string) => Promise<void>;
     updateProfileStatus: (status: string) => Promise<void>;
@@ -35,7 +35,7 @@ export declare const makeChatsSocket: (config: SocketConfig) => {
     updateProfilePicturePrivacy: (value: WAPrivacyValue) => Promise<void>;
     updateStatusPrivacy: (value: WAPrivacyValue) => Promise<void>;
     updateReadReceiptsPrivacy: (value: WAReadReceiptsValue) => Promise<void>;
-    updateGroupsAddPrivacy: (value: WAPrivacyValue) => Promise<void>;
+    updateGroupsAddPrivacy: (value: WAPrivacyGroupAddValue) => Promise<void>;
     updateDefaultDisappearingMode: (duration: number) => Promise<void>;
     getBusinessProfile: (jid: string) => Promise<WABusinessProfile | void>;
     resyncAppState: (collections: readonly ("critical_block" | "critical_unblock_low" | "regular_high" | "regular_low" | "regular")[], isInitialSync: boolean) => Promise<void>;
@@ -44,12 +44,13 @@ export declare const makeChatsSocket: (config: SocketConfig) => {
     addChatLabel: (jid: string, labelId: string) => Promise<void>;
     removeChatLabel: (jid: string, labelId: string) => Promise<void>;
     addMessageLabel: (jid: string, messageId: string, labelId: string) => Promise<void>;
-    clearMessage: (jid: string, key: string, timeStamp: string) => Promise<void>;
     removeMessageLabel: (jid: string, messageId: string, labelId: string) => Promise<void>;
+    clearMesaage: (jid: string, key: string, timeStamp: string) => Promise<void>;
     star: (jid: string, messages: {
         id: string;
         fromMe?: boolean;
     }[], star: boolean) => Promise<void>;
+    executeUSyncQuery: (usyncQuery: USyncQuery) => Promise<import("../WAUSync").USyncQueryResult | undefined>;
     type: "md";
     ws: any;
     ev: import("../Types").BaileysEventEmitter & {

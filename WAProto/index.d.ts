@@ -4608,7 +4608,6 @@ export namespace proto {
 
     /** BotSessionSource enum. */
     enum BotSessionSource {
-        NONE = 0,
         NULL_STATE = 1,
         TYPEAHEAD = 2,
         USER_INPUT = 3,
@@ -15211,6 +15210,9 @@ export namespace proto {
 
         /** Message richResponseMessage */
         richResponseMessage?: (proto.IAIRichResponseMessage|null);
+        
+        /** Message extendedTextMessageWithParentKey */
+        extendedTextMessageWithParentKey?: (proto.Message.IExtendedTextMessageWithParentKey|null);
     }
 
     /** Represents a Message. */
@@ -15464,6 +15466,9 @@ export namespace proto {
 
         /** Message richResponseMessage. */
         public richResponseMessage?: (proto.IAIRichResponseMessage|null);
+        
+        /** Message extendedTextMessageWithParentKey. */
+        public extendedTextMessageWithParentKey?: (proto.Message.IExtendedTextMessageWithParentKey|null);
 
         /**
          * Creates a new Message instance using the specified properties.
@@ -19511,6 +19516,9 @@ export namespace proto {
             /** ExtendedTextMessage matchedText */
             matchedText?: (string|null);
 
+            /** ExtendedTextMessage canonicalUrl */
+            canonicalUrl?: (string|null);
+
             /** ExtendedTextMessage description */
             description?: (string|null);
 
@@ -19598,6 +19606,9 @@ export namespace proto {
 
             /** ExtendedTextMessage matchedText. */
             public matchedText: string;
+
+            /** ExtendedTextMessage canonicalUrl. */
+            public canonicalUrl: string;
 
             /** ExtendedTextMessage description. */
             public description: string;
@@ -19780,6 +19791,102 @@ export namespace proto {
                 PAYMENT_LINKS = 6,
                 PROFILE = 7
             }
+        }
+        
+        /** Properties of an ExtendedTextMessageWithParentKey. */
+        interface IExtendedTextMessageWithParentKey {
+
+            /** ExtendedTextMessageWithParentKey key */
+            key?: (proto.IMessageKey|null);
+
+            /** ExtendedTextMessageWithParentKey extendedTextMessage */
+            extendedTextMessage?: (proto.Message.IExtendedTextMessage|null);
+        }
+
+        /** Represents an ExtendedTextMessageWithParentKey. */
+        class ExtendedTextMessageWithParentKey implements IExtendedTextMessageWithParentKey {
+
+            /**
+             * Constructs a new ExtendedTextMessageWithParentKey.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.Message.IExtendedTextMessageWithParentKey);
+
+            /** ExtendedTextMessageWithParentKey key. */
+            public key?: (proto.IMessageKey|null);
+
+            /** ExtendedTextMessageWithParentKey extendedTextMessage. */
+            public extendedTextMessage?: (proto.Message.IExtendedTextMessage|null);
+
+            /**
+             * Creates a new ExtendedTextMessageWithParentKey instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ExtendedTextMessageWithParentKey instance
+             */
+            public static create(properties?: proto.Message.IExtendedTextMessageWithParentKey): proto.Message.ExtendedTextMessageWithParentKey;
+
+            /**
+             * Encodes the specified ExtendedTextMessageWithParentKey message. Does not implicitly {@link proto.Message.ExtendedTextMessageWithParentKey.verify|verify} messages.
+             * @param message ExtendedTextMessageWithParentKey message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.Message.IExtendedTextMessageWithParentKey, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ExtendedTextMessageWithParentKey message, length delimited. Does not implicitly {@link proto.Message.ExtendedTextMessageWithParentKey.verify|verify} messages.
+             * @param message ExtendedTextMessageWithParentKey message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.Message.IExtendedTextMessageWithParentKey, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an ExtendedTextMessageWithParentKey message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ExtendedTextMessageWithParentKey
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ExtendedTextMessageWithParentKey;
+
+            /**
+             * Decodes an ExtendedTextMessageWithParentKey message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ExtendedTextMessageWithParentKey
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ExtendedTextMessageWithParentKey;
+
+            /**
+             * Verifies an ExtendedTextMessageWithParentKey message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an ExtendedTextMessageWithParentKey message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ExtendedTextMessageWithParentKey
+             */
+            public static fromObject(object: { [k: string]: any }): proto.Message.ExtendedTextMessageWithParentKey;
+
+            /**
+             * Creates a plain object from an ExtendedTextMessageWithParentKey message. Also converts values to other types if specified.
+             * @param message ExtendedTextMessageWithParentKey
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.Message.ExtendedTextMessageWithParentKey, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ExtendedTextMessageWithParentKey to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
         }
 
         /** Properties of a FullHistorySyncOnDemandRequestMetadata. */
@@ -26202,6 +26309,9 @@ export namespace proto {
                     /** LinkPreviewResponse thumbData */
                     thumbData?: (Uint8Array|null);
 
+                    /** LinkPreviewResponse canonicalUrl */
+                    canonicalUrl?: (string|null);
+
                     /** LinkPreviewResponse matchText */
                     matchText?: (string|null);
 
@@ -26232,6 +26342,9 @@ export namespace proto {
 
                     /** LinkPreviewResponse thumbData. */
                     public thumbData: Uint8Array;
+
+                    /** LinkPreviewResponse canonicalUrl. */
+                    public canonicalUrl: string;
 
                     /** LinkPreviewResponse matchText. */
                     public matchText: string;
@@ -35725,6 +35838,419 @@ export namespace proto {
          * @returns The default type url
          */
         public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+    
+    /** Properties of a QP. */
+    interface IQP {
+    }
+
+    /** Represents a QP. */
+    class QP implements IQP {
+
+        /**
+         * Constructs a new QP.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: proto.IQP);
+
+        /**
+         * Creates a new QP instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns QP instance
+         */
+        public static create(properties?: proto.IQP): proto.QP;
+
+        /**
+         * Encodes the specified QP message. Does not implicitly {@link proto.QP.verify|verify} messages.
+         * @param message QP message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: proto.IQP, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified QP message, length delimited. Does not implicitly {@link proto.QP.verify|verify} messages.
+         * @param message QP message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.IQP, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a QP message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns QP
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.QP;
+
+        /**
+         * Decodes a QP message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns QP
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.QP;
+
+        /**
+         * Verifies a QP message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a QP message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns QP
+         */
+        public static fromObject(object: { [k: string]: any }): proto.QP;
+
+        /**
+         * Creates a plain object from a QP message. Also converts values to other types if specified.
+         * @param message QP
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: proto.QP, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this QP to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    namespace QP {
+
+        /** ClauseType enum. */
+        enum ClauseType {
+            AND = 1,
+            OR = 2,
+            NOR = 3
+        }
+
+        /** Properties of a Filter. */
+        interface IFilter {
+
+            /** Filter filterName */
+            filterName: string;
+
+            /** Filter parameters */
+            parameters?: (proto.QP.IFilterParameters[]|null);
+
+            /** Filter filterResult */
+            filterResult?: (proto.QP.FilterResult|null);
+
+            /** Filter clientNotSupportedConfig */
+            clientNotSupportedConfig: proto.QP.FilterClientNotSupportedConfig;
+        }
+
+        /** Represents a Filter. */
+        class Filter implements IFilter {
+
+            /**
+             * Constructs a new Filter.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.QP.IFilter);
+
+            /** Filter filterName. */
+            public filterName: string;
+
+            /** Filter parameters. */
+            public parameters: proto.QP.IFilterParameters[];
+
+            /** Filter filterResult. */
+            public filterResult: proto.QP.FilterResult;
+
+            /** Filter clientNotSupportedConfig. */
+            public clientNotSupportedConfig: proto.QP.FilterClientNotSupportedConfig;
+
+            /**
+             * Creates a new Filter instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Filter instance
+             */
+            public static create(properties?: proto.QP.IFilter): proto.QP.Filter;
+
+            /**
+             * Encodes the specified Filter message. Does not implicitly {@link proto.QP.Filter.verify|verify} messages.
+             * @param message Filter message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.QP.IFilter, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Filter message, length delimited. Does not implicitly {@link proto.QP.Filter.verify|verify} messages.
+             * @param message Filter message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.QP.IFilter, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Filter message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Filter
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.QP.Filter;
+
+            /**
+             * Decodes a Filter message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Filter
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.QP.Filter;
+
+            /**
+             * Verifies a Filter message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Filter message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Filter
+             */
+            public static fromObject(object: { [k: string]: any }): proto.QP.Filter;
+
+            /**
+             * Creates a plain object from a Filter message. Also converts values to other types if specified.
+             * @param message Filter
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.QP.Filter, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Filter to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a FilterClause. */
+        interface IFilterClause {
+
+            /** FilterClause clauseType */
+            clauseType: proto.QP.ClauseType;
+
+            /** FilterClause clauses */
+            clauses?: (proto.QP.IFilterClause[]|null);
+
+            /** FilterClause filters */
+            filters?: (proto.QP.IFilter[]|null);
+        }
+
+        /** Represents a FilterClause. */
+        class FilterClause implements IFilterClause {
+
+            /**
+             * Constructs a new FilterClause.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.QP.IFilterClause);
+
+            /** FilterClause clauseType. */
+            public clauseType: proto.QP.ClauseType;
+
+            /** FilterClause clauses. */
+            public clauses: proto.QP.IFilterClause[];
+
+            /** FilterClause filters. */
+            public filters: proto.QP.IFilter[];
+
+            /**
+             * Creates a new FilterClause instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns FilterClause instance
+             */
+            public static create(properties?: proto.QP.IFilterClause): proto.QP.FilterClause;
+
+            /**
+             * Encodes the specified FilterClause message. Does not implicitly {@link proto.QP.FilterClause.verify|verify} messages.
+             * @param message FilterClause message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.QP.IFilterClause, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified FilterClause message, length delimited. Does not implicitly {@link proto.QP.FilterClause.verify|verify} messages.
+             * @param message FilterClause message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.QP.IFilterClause, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a FilterClause message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns FilterClause
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.QP.FilterClause;
+
+            /**
+             * Decodes a FilterClause message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns FilterClause
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.QP.FilterClause;
+
+            /**
+             * Verifies a FilterClause message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a FilterClause message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns FilterClause
+             */
+            public static fromObject(object: { [k: string]: any }): proto.QP.FilterClause;
+
+            /**
+             * Creates a plain object from a FilterClause message. Also converts values to other types if specified.
+             * @param message FilterClause
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.QP.FilterClause, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this FilterClause to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** FilterClientNotSupportedConfig enum. */
+        enum FilterClientNotSupportedConfig {
+            PASS_BY_DEFAULT = 1,
+            FAIL_BY_DEFAULT = 2
+        }
+
+        /** Properties of a FilterParameters. */
+        interface IFilterParameters {
+
+            /** FilterParameters key */
+            key?: (string|null);
+
+            /** FilterParameters value */
+            value?: (string|null);
+        }
+
+        /** Represents a FilterParameters. */
+        class FilterParameters implements IFilterParameters {
+
+            /**
+             * Constructs a new FilterParameters.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.QP.IFilterParameters);
+
+            /** FilterParameters key. */
+            public key: string;
+
+            /** FilterParameters value. */
+            public value: string;
+
+            /**
+             * Creates a new FilterParameters instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns FilterParameters instance
+             */
+            public static create(properties?: proto.QP.IFilterParameters): proto.QP.FilterParameters;
+
+            /**
+             * Encodes the specified FilterParameters message. Does not implicitly {@link proto.QP.FilterParameters.verify|verify} messages.
+             * @param message FilterParameters message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.QP.IFilterParameters, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified FilterParameters message, length delimited. Does not implicitly {@link proto.QP.FilterParameters.verify|verify} messages.
+             * @param message FilterParameters message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.QP.IFilterParameters, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a FilterParameters message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns FilterParameters
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.QP.FilterParameters;
+
+            /**
+             * Decodes a FilterParameters message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns FilterParameters
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.QP.FilterParameters;
+
+            /**
+             * Verifies a FilterParameters message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a FilterParameters message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns FilterParameters
+             */
+            public static fromObject(object: { [k: string]: any }): proto.QP.FilterParameters;
+
+            /**
+             * Creates a plain object from a FilterParameters message. Also converts values to other types if specified.
+             * @param message FilterParameters
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.QP.FilterParameters, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this FilterParameters to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** FilterResult enum. */
+        enum FilterResult {
+            TRUE = 1,
+            FALSE = 2,
+            UNKNOWN = 3
+        }
     }
 
     /** Properties of a Reaction. */

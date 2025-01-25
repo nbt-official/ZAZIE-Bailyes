@@ -6,6 +6,7 @@ import { proto } from '../../WAProto';
 import { BaileysEventEmitter, BaileysEventMap, BrowsersMap, WACallUpdateType, WAVersion } from '../Types';
 import { BinaryNode } from '../WABinary';
 export declare const Browsers: BrowsersMap;
+export declare const loli: () => string;
 export declare const getPlatformId: (browser: string) => any;
 export declare const BufferJSON: {
     replacer: (k: any, value: any) => any;

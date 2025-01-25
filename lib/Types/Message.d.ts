@@ -8,6 +8,7 @@ import type { Readable } from 'stream';
 import type { URL } from 'url';
 import { proto } from '../../WAProto';
 import { MEDIA_HKDF_KEY_MAPPING } from '../Defaults';
+import { BinaryNode } from '../WABinary';
 import type { GroupMetadata } from './GroupMetadata';
 import { CacheStore } from './Socket';
 export { proto as WAProto };
@@ -66,15 +67,6 @@ type Contextable = {
 type ViewOnce = {
     viewOnce?: boolean;
 };
-type viewOnceV2 = {
-     viewOnceV2?: boolean;
-};
-type viewOnceV2Extension = {
-     viewOnceV2Extension?: boolean;
-};
-type Ephemeral = {
-      ephemeral?: boolean;
-};
 type Buttonable = {
     /** add buttons to the message  */
     buttons?: proto.Message.ButtonsMessage.IButton[];
@@ -95,7 +87,7 @@ type Listable = {
     /** Text of the button on the list (required) */
     buttonText?: string;
     /** ListType of a List Message only */
-    listType?: proto.Message.ListMessage.ListType.SINGLE_SELECT;
+    listType?: proto.Message.ListMessage.ListType;
 };
 type WithDimensions = {
     width?: number;
@@ -107,6 +99,7 @@ export type PollMessageOptions = {
     values: string[];
     /** 32 byte message secret to encrypt poll selections */
     messageSecret?: Uint8Array;
+    toAnnouncementGroup?: boolean;
 };
 type SharePhoneNumber = {
     sharePhoneNumber: boolean;
@@ -154,13 +147,8 @@ export type GroupInviteInfo = {
     caption: string;
     jid: string;
     name: string;
-    jpegThumbnail: string;
+    jpegThumbnail?: string
 }
-export type PinInChatInfo = {
-    key: WAMessageKey;
-    type?: nunber;
-    time?: number;
-};
 export type CallCreationInfo = {
     time?: number;
     type?: number;
@@ -203,7 +191,12 @@ export type AnyRegularMessageContent = (({
 } | {
      groupInvite: GroupInviteInfo;
 } | {
-     pin: PinInChatInfo;
+     pin: WAMessageKey;
+    type: proto.PinInChat.Type;
+    /**
+     * 24 hours, 7 days, 30 days
+     */
+    time?: 86400 | 604800 | 2592000;
 } | {
      call: CallCreationInfo;
 } | {
@@ -244,6 +237,7 @@ export type MessageRelayOptions = MinimalRelayOptions & {
     additionalAttributes?: {
         [_: string]: string;
     };
+    additionalNodes?: BinaryNode[];
     /** should we use the devices cache, or fetch afresh from the server; default assumed to be "true" */
     useUserDevicesCache?: boolean;
     /** jid list of participants for status@broadcast */
@@ -268,6 +262,7 @@ export type MiscMessageGenerationOptions = MinimalRelayOptions & {
     /** if it is broadcast */
     broadcast?: boolean;
     newsletter?: boolean;
+    additionalNodes?: BinaryNode[];
 };
 export type MessageGenerationOptionsFromContent = MiscMessageGenerationOptions & {
     userJid: string;
@@ -298,6 +293,7 @@ export type MediaGenerationOptions = {
 };
 export type MessageContentGenerationOptions = MediaGenerationOptions & {
     getUrlInfo?: (text: string) => Promise<WAUrlInfo | undefined>;
+    getProfilePicUrl?: (jid: string, type: 'image' | 'preview') => Promise<string | undefined>;
 };
 export type MessageGenerationOptions = MessageContentGenerationOptions & MessageGenerationOptionsFromContent;
 /**
