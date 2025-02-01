@@ -1,7 +1,7 @@
 {
   "name": "baileys",
   "version": "6.6.0",
-  "description": "WhatsApp API Fixed By AxellNetwork", 
+  "description": "WhatsApp API", 
   "keywords": [
     "whatsapp",
     "js-whatsapp",
@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "author": "AxellNetwork",
-  "main": "lib/index.d.ts",
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib/*",
