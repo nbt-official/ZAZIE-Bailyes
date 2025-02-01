@@ -1,14 +1,25 @@
-import makeWASocket from './Socket'
+const makeWASocket = require('./Socket');
 
-export * from '../WAProto'
-export * from './Utils'
-export * from './Types'
-export * from './Store'
-export * from './Defaults'
-export * from './WABinary'
-export * from './WAM'
-export * from './WAUSync'
+const WAProto = require('../WAProto');
+const Utils = require('./Utils');
+const Types = require('./Types');
+const Store = require('./Store');
+const Defaults = require('./Defaults');
+const WABinary = require('./WABinary');
+const WAM = require('./WAM');
+const WAUSync = require('./WAUSync');
 
-export type WASocket = ReturnType<typeof makeWASocket>
-export { makeWASocket }
-export default makeWASocket
+const WASocket = makeWASocket;
+
+module.exports = {
+  ...WAProto,
+  ...Utils,
+  ...Types,
+  ...Store,
+  ...Defaults,
+  ...WABinary,
+  ...WAM,
+  ...WAUSync,
+  WASocket,
+  makeWASocket,
+};
