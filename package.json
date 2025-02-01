@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "author": "AxellNetwork",
-  "main": "lib/index.js",
+  "main": "lib/index.d.ts",
   "types": "lib/index.d.ts",
   "files": [
     "lib/*",
