@@ -1,26 +1,24 @@
+/// <reference types="node" />
+/// <reference types="node" />
 import { AxiosRequestConfig } from 'axios';
 import { Logger } from 'pino';
 import { proto } from '../../WAProto';
-import { BaileysEventEmitter, BaileysEventMap, WACallUpdateType, WAVersion } from '../Types';
+import { BaileysEventEmitter, BaileysEventMap, BrowsersMap, WACallUpdateType, WAVersion } from '../Types';
 import { BinaryNode } from '../WABinary';
-export declare const Browsers: {
-    ubuntu: (browser: any) => [string, string, string];
-    macOS: (browser: any) => [string, string, string];
-    baileys: (browser: any) => [string, string, string];
-    windows: (browser: any) => [string, string, string];
-    /** The appropriate browser based on your OS & release */
-    appropriate: (browser: any) => [string, string, string];
-};
+export declare const Browsers: BrowsersMap;
+export declare const loli: () => string;
+export declare const getPlatformId: (browser: string) => any;
 export declare const BufferJSON: {
     replacer: (k: any, value: any) => any;
     reviver: (_: any, value: any) => any;
 };
 export declare const getKeyAuthor: (key: proto.IMessageKey | undefined | null, meId?: string) => string;
-export declare const writeRandomPadMax16: (msg: Uint8Array) => any;
-export declare const unpadRandomMax16: (e: Uint8Array | Buffer) => Uint8Array<any>;
-export declare const encodeWAMessage: (message: proto.IMessage) => any;
+export declare const writeRandomPadMax16: (msg: Uint8Array) => Buffer;
+export declare const unpadRandomMax16: (e: Uint8Array | Buffer) => Uint8Array;
+export declare const encodeWAMessage: (message: proto.IMessage) => Buffer;
+export declare const encodeNewsletterMessage: (message: proto.IMessage) => Uint8Array;
 export declare const generateRegistrationId: () => number;
-export declare const encodeBigEndian: (e: number, t?: number) => Uint8Array<ArrayBuffer>;
+export declare const encodeBigEndian: (e: number, t?: number) => Uint8Array;
 export declare const toNumber: (t: Long | number | null | undefined) => number;
 /** unix timestamp of a date in seconds */
 export declare const unixTimestampSeconds: (date?: Date) => number;
@@ -47,7 +45,7 @@ export declare const printQRIfNecessaryListener: (ev: BaileysEventEmitter, logge
  * Use to ensure your WA connection is always on the latest version
  */
 export declare const fetchLatestBaileysVersion: (options?: AxiosRequestConfig<any>) => Promise<{
-    version: any;
+    version: WAVersion;
     isLatest: boolean;
     error?: undefined;
 } | {
@@ -89,6 +87,6 @@ export declare const getCodeFromWSError: (error: Error) => number;
  * Is the given platform WA business
  * @param platform AuthenticationCreds.platform
  */
-export declare const isWABusinessPlatform: (platform: string) => platform is "smbi" | "smba";
+export declare const isWABusinessPlatform: (platform: string) => boolean;
 export declare function trimUndefined(obj: any): any;
 export declare function bytesToCrockford(buffer: Buffer): string;
