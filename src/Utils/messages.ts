@@ -533,13 +533,7 @@ export const generateWAMessageContent = async(
          messageSecret: message.event.messageSecret || randomBytes(32), 
       }
       m.eventMessage = { ...message.event }
-   } else if('album' in message) {
-     if (Array.isArray(message)) return new Error("Input array of messages!")    
-     m.albumMessage = {
-            expectedImageCount: message.filter(a => a.hasOwnProperty("image")).length,
-            expectedVideoCount: message.filter(a => a.hasOwnProperty("video")).length
-        }
-} else if('inviteAdmin' in message) {
+   } else if('inviteAdmin' in message) {
         m.newsletterAdminInviteMessage = {};
         m.newsletterAdminInviteMessage.inviteExpiration = message.inviteAdmin.inviteExpiration;
         m.newsletterAdminInviteMessage.caption = message.inviteAdmin.text;
