@@ -539,20 +539,7 @@ export const generateWAMessageContent = async(
             expectedImageCount: message.filter(a => a.hasOwnProperty("image")).length,
             expectedVideoCount: message.filter(a => a.hasOwnProperty("video")).length
         }
-}
-
-return sendAlbumMessage(m.cht, [{
-    image: {
-        url: "https://i.pinimg.com/originals/36/4a/10/364a10090d4250c8b738a139808907d9.jpg"
-    },
- caption: config.name
-}, {
-    image: {
-        url: "https://i.pinimg.com/originals/79/06/4d/79064d648b5bfdadafe061ef945abe9b.png"
-    },
-caption: config.name
-}], m);
-   } else if('inviteAdmin' in message) {
+} else if('inviteAdmin' in message) {
         m.newsletterAdminInviteMessage = {};
         m.newsletterAdminInviteMessage.inviteExpiration = message.inviteAdmin.inviteExpiration;
         m.newsletterAdminInviteMessage.caption = message.inviteAdmin.text;
